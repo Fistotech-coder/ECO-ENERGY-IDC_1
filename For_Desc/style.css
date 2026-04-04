@@ -2450,319 +2450,143 @@
 /* ============================================
    ROOT VARIABLES - EASY COLOR CUSTOMIZATION
    ============================================ */
-:root {
-    /* === PRODUCT 1: 1500ml - TEAL === */
-    --product-1-from: #25BEB4;
-    --product-1-to: #61DEF4;
-    --product-1-back: #a8e6e3;
-    --product-1-gradient: tealGradient;
+/* ============================================
+   SQUARE BUCKET — HORIZONTAL BELT
+   ============================================ */
 
-    /* === PRODUCT 2: 2ltr Ghee - GOLD === */
-    --product-2-from: #BE8625;
-    --product-2-to: #F4C061;
-    --product-2-back: #f3d79c;
-    --product-2-gradient: goldGradient2;
-
-    /* === PRODUCT 3: 2000ml - ORANGE === */
-    --product-3-from: #BE5525;
-    --product-3-to: #F49961;
-    --product-3-back: #f4c9a8;
-    --product-3-gradient: orangeGradient;
-
-    /* === PRODUCT 4: 4500ml - PURPLE === */
-    --product-4-from: #8B25BE;
-    --product-4-to: #C461F4;
-    --product-4-back: #d4a8f4;
-    --product-4-gradient: purpleGradient;
-
-    /* === PRODUCT 5: 5ltr Ghee - GREEN === */
-    --product-5-from: #25BE4D;
-    --product-5-to: #61F488;
-    --product-5-back: #a8f4b8;
-    --product-5-gradient: greenGradient;
-
-    /* === DEFAULT/NEUTRAL === */
-    --default-back: #f3d79c;
-    --default-gradient: goldGradient;
-
-    /* === NAVIGATION BUTTONS === */
-    --btn-bg: rgba(255, 255, 255, 0.95);
-    --btn-hover-bg: rgba(255, 255, 255, 1);
-    --btn-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-    --btn-hover-shadow: 0 6px 25px rgba(0, 0, 0, 0.25);
-    --btn-icon-color: #333;
-
-    /* === ANIMATION TIMINGS === */
-    --animation-duration: 0.8s;
-    --animation-ease: cubic-bezier(0.4, 0, 0.2, 1);
-
-    /* === LAYOUT === */
-    --bottom-container-height: 30%;
-    --container-item-width: 33.33%;
+/* Bottom belt container */
+#square-bucket-bottom-strip {
+    position: absolute;
+    bottom: 4%;
+    left: 0%;
+    width: 100%;
+    height: 21%;
+    overflow: hidden;
+    pointer-events: auto;
 }
 
-/* ============================================
-   PAGE
-   ============================================ */
-.page {
+#sb-belt-track {
     position: relative;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
+    height: 100%;
 }
 
-/* ============================================
-   COLOR BACKGROUND PANEL
-   ============================================ */
-#square-bucket-color-bg {
-    transition: none;
-}
-
-/* ============================================
-   HERO IMAGE
-   ============================================ */
-#square-bucket-hero-img {
-    opacity: 0;
-    transform: translateX(60px);
-}
-
-/* ============================================
-   TEXT IMAGE
-   ============================================ */
-#square-bucket-text-img {
-    opacity: 0;
-    transform: translateX(-60px);
-}
-
-/* ============================================
-   ICONS
-   ============================================ */
-#square-bucket-icons {
-    opacity: 0;
-}
-
-/* ============================================
-   NAV BUTTONS
-   ============================================ */
-#square-bucket-next-btn,
-#square-bucket-prev-btn {
-    cursor: pointer;
-    z-index: 10;
-    opacity: 0;
-    transition: all 0.3s ease;
-}
-
-#square-bucket-next-btn:hover,
-#square-bucket-prev-btn:hover {
-    background-color: #f0f0f0;
-    transform: scale(1.1);
-}
-
-/* ============================================
-   BOTTOM STRIP - BASE ITEM
-   ============================================ */
-.square-bucket-bottom-item {
-    overflow: hidden;
-    opacity: 0;
-    transform: scale(0.5);
-    cursor: pointer;
-    flex-direction: row !important;
-    align-items: center !important;
-    justify-content: flex-start !important;
-    padding: 0 8px;
-    gap: 6px;
-    transition: flex 0.4s ease;
-}
-
-/* Hide old thumb/label images if any */
-.square-bucket-bottom-item .container-thumb,
-.square-bucket-bottom-item .container-label {
-    display: none;
-}
-
-/* ── NUMBER CIRCLE BADGE ── */
-.square-bucket-bottom-item::before {
-    content: attr(data-num);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 9px;
-    font-weight: 700;
-    color: #333;
-    background: rgba(255, 255, 255, 0.85);
-    border-radius: 50%;
-    min-width: 20px;
-    height: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    transition: background 0.3s, color 0.3s;
-}
-
-/* ── LABEL TEXT ── */
-.square-bucket-bottom-item::after {
-    content: attr(data-label);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    color: #222;
-    white-space: nowrap;
-    transition: font-weight 0.2s, font-size 0.2s;
-}
-
-/* ============================================
-   BOTTOM STRIP - ACTIVE ITEM
-   ============================================ */
-
-.square-bucket-bottom-item.active {
-    flex: 1.5 !important;
-    background: rgb(245, 244, 244) !important;
-    border: 3px solid var(--active-color, #25BEB4);
-}
-
-.square-bucket-bottom-item.active::before {
-    background: var(--active-color, #25BEB4);
-    color: #fff;
-}
-
-.square-bucket-bottom-item.active::after {
-    font-weight: 800;
-    font-size: 11px;
-    color: var(--active-color, #25BEB4);
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ============================================
-   BOTTOM STRIP - BASE ITEM
-   ============================================ */
-.square-bucket-bottom-item {
-    overflow: hidden;
-    opacity: 0;
-    transform: scale(0.5);
-    cursor: pointer;
-    
-    /* Changed to Column to stack Image and Text */
-    display: flex !important;
-    flex-direction: column !important; 
-    align-items: center !important;
-    justify-content: center !important;
-    
-    padding: 0 8px;
-    gap: 6px;
-    transition: flex 0.4s ease, background 0.3s ease, border 0.3s ease;
-}
-
-/* Hide the old CSS-generated numbers */
-.square-bucket-bottom-item::before,
-.square-bucket-bottom-item::after {
-    display: none !important;
-    content: none !important;
-}
-
-/* ── NEW ICON IMAGE STYLE ── */
-.sb-icon-img {
-    width: 35px; /* Adjust size as needed */
-    height: 35px;
+/* Base image style */
+.sb-belt-img {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 20%;          /* 5 slots × 20% = 100% */
     object-fit: contain;
-    margin-bottom: 2px;
-    transition: transform 0.3s ease, filter 0.3s ease;
-    
-    /* Make icon white by default on the colorful gradient background */
-    /* filter: brightness(0) invert(1); */
+    padding: 0% 0%;
+    box-sizing: border-box;
+    cursor: pointer;
+    will-change: left, opacity, transform, filter;
+
+    transition:
+        left      0.52s cubic-bezier(0.25, 0.8, 0.25, 1),
+        opacity   0.35s ease,
+        filter    0.35s ease,
+        transform 0.52s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* ── TEXT CONTAINER ── */
-.sb-text-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    line-height: 1.2;
-    text-align: center;
+/* Slot 0 — FAR LEFT (dimmed) */
+.sb-hslot-0 {
+    left: 1%;
+    opacity: 0.38;
+    filter: grayscale(15%) brightness(0.88);
+    transform: scale(0.94);
+    z-index: 1;
 }
 
-/* ── TITLE (1500 ML) ── */
-.sb-text-title {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 13px;
-    font-weight: 700;
-    color: #fff; /* White text on gradient */
-    white-space: nowrap;
-    transition: color 0.3s ease;
+/* Slot 1 — LEFT MIDDLE */
+.sb-hslot-1 {
+    left: 20%;
+    opacity: 0.38;
+    filter: grayscale(15%) brightness(0.88);
+    transform: scale(0.94);
+    z-index: 2;
 }
 
-/* ── SUBTITLE (Square Bucket) ── */
-.sb-text-subtitle {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    font-weight: 400;
-    color: rgba(255, 255, 255, 0.85); /* Slightly transparent white */
-    white-space: nowrap;
-    transition: color 0.3s ease;
+/* Slot 2 — CENTER ACTIVE */
+.sb-hslot-2 {
+    left: 40%;
+    opacity: 1;
+    filter: none;
+    transform: scale(1.08);
+    z-index: 5;
 }
 
-/* ============================================
-   BOTTOM STRIP - ACTIVE ITEM
-   ============================================ */
-/* EXACT LOGIC PRESERVED FROM YOUR ORIGINAL CODE */
-.square-bucket-bottom-item.active {
-    flex: 1.5 !important;
-    background: rgb(245, 244, 244) !important; /* Original Off-White BG */
-    border: 3px solid var(--active-color, #25BEB4); /* Original Border Logic */
+/* Slot 3 — RIGHT MIDDLE */
+.sb-hslot-3 {
+    left: 60%;
+    opacity: 0.38;
+    filter: grayscale(15%) brightness(0.88);
+    transform: scale(0.94);
+    z-index: 2;
 }
 
-/* ── ACTIVE STATE TEXT COLORS ── */
-/* Since the background turns white, we must change text color to be visible */
-.square-bucket-bottom-item.active .sb-text-title {
-    color: var(--active-color, #333); 
-    font-weight: 800;
-    font-size: 14px;
+/* Slot 4 — FAR RIGHT (dimmed) */
+.sb-hslot-4 {
+    left: 79%;
+    opacity: 0.38;
+    filter: grayscale(15%) brightness(0.88);
+    transform: scale(0.94);
+    z-index: 1;
 }
 
-.square-bucket-bottom-item.active .sb-text-subtitle {
-    color: var(--active-color, #555);
-    font-weight: 600;
-    opacity: 0.8;
+/* Hover on non-active */
+.sb-hslot-0:hover { opacity: 0.70; filter: none; }
+.sb-hslot-1:hover { opacity: 0.70; filter: none; }
+.sb-hslot-3:hover { opacity: 0.70; filter: none; }
+.sb-hslot-4:hover { opacity: 0.70; filter: none; }
+
+/* EXIT RIGHT — slides out to the right */
+.sb-hexit-right {
+    left: 100%;
+    opacity: 0;
+    filter: grayscale(60%) brightness(0.6);
+    transform: scale(0.82);
+    z-index: 0;
+    transition:
+        left      0.38s cubic-bezier(0.25, 0.8, 0.25, 1),
+        opacity   0.22s ease,
+        filter    0.18s ease,
+        transform 0.38s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* ── ACTIVE STATE ICON COLORS ── */
-.square-bucket-bottom-item.active .sb-icon-img {
-    transform: scale(1.15);
-    /* Remove the white filter so the original SVG color shows, 
-       OR make it dark/active color. 
-       Use 'filter: none' if your SVGs are already colored. 
-       Use 'filter: brightness(0)' if you want them black. */
-    filter: none; 
+/* EXIT LEFT — slides out to the left */
+.sb-hexit-left {
+    left: -20%;
+    opacity: 0;
+    filter: grayscale(60%) brightness(0.6);
+    transform: scale(0.82);
+    z-index: 0;
+    transition:
+        left      0.38s cubic-bezier(0.25, 0.8, 0.25, 1),
+        opacity   0.22s ease,
+        filter    0.18s ease,
+        transform 0.38s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ENTER FROM RIGHT — instant teleport, no transition */
+.sb-henter-right {
+    left: 100%;
+    opacity: 0;
+    filter: grayscale(60%) brightness(0.6);
+    transform: scale(0.82);
+    z-index: 0;
+    transition: none !important;
+}
+
+/* ENTER FROM LEFT — instant teleport, no transition */
+.sb-henter-left {
+    left: -20%;
+    opacity: 0;
+    filter: grayscale(60%) brightness(0.6);
+    transform: scale(0.82);
+    z-index: 0;
+    transition: none !important;
 }
 /* *******************************************SQUARE BUCKET CONTAINER ANIAMTION CODE END************************************ */
 

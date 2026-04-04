@@ -1612,226 +1612,362 @@ $(document).ready(function () {
 
 
 // *******************************************SQUARE BUCKET CONTAINER ANIAMTION CODE START************************************
+// *******************************************SQUARE BUCKET CONTAINER ANIMATION CODE START************************************
 
-// ── CONFIGURATION ──
-const squareBucketItems = [
+const SB_BUCKET_PRODUCTS = [
     {
-        id: 'square-bucket-container-1',
-        fromColor: '#BEA225', toColor: '#BEA225',
-        shadowColor: '#FCFFB2', gradStart: '#BEA225', gradEnd: '#EFF461',
-        heroImg: '../global assets/Images/Square-bucket/1500-ml/container-img.webp',
-        textImg: '../global assets/Images/Square-bucket/1500-ml/1500-ml-text-content.svg',
-        lightboxUrl: '../lightBox/index.html#1500-ml-square-bucket'
+        heroImg:     '../global assets/Images/Square-bucket/1500-ml/container-img.webp',
+        textImg:     '../global assets/Images/Square-bucket/1500-ml/1500-ml-text-content.svg',
+        lightboxUrl: '../lightBox/index.html#1500-ml-square-bucket',
+        shadowColor: '#FCFFB2',
+        gradStart:   '#BEA225',
+        gradEnd:     '#EFF461'
     },
     {
-        id: 'square-bucket-container-2',
-        fromColor: '#BE8625', toColor: '#BE8625',
-        shadowColor: '#F7D79C', gradStart: '#BE8625', gradEnd: '#F4C061',
-        heroImg: '../global assets/Images/Square-bucket/2ltr-ghee/container-img.webp',
-        textImg: '../global assets/Images/Square-bucket/2ltr-ghee/2-ltr-ghee-text-content.svg',
-        lightboxUrl: '../lightBox/index.html#2-ltr-ghee-square-bucket'
+        heroImg:     '../global assets/Images/Square-bucket/2ltr-ghee/container-img.webp',
+        textImg:     '../global assets/Images/Square-bucket/2ltr-ghee/2-ltr-ghee-text-content.svg',
+        lightboxUrl: '../lightBox/index.html#2-ltr-ghee-square-bucket',
+        shadowColor: '#f3d79c',
+        gradStart:   '#c78f2b',
+        gradEnd:     '#e6b35a'
     },
     {
-        id: 'square-bucket-container-3',
-        fromColor: '#6AA700', toColor: '#6AA700',
-        shadowColor: '#EDF6C9', gradStart: '#6AA700', gradEnd: '#EDF6C9',
-        heroImg: '../global assets/Images/Square-bucket/2000-ml-square/container-img.webp',
-        textImg: '../global assets/Images/Square-bucket/2000-ml-square/2000-ml-square-text-image.svg',
-        lightboxUrl: '../lightBox/index.html#2000-ml-square-bucket'
+        heroImg:     '../global assets/Images/Square-bucket/2000-ml-square/container-img.webp',
+        textImg:     '../global assets/Images/Square-bucket/2000-ml-square/2000-ml-square-text-image.svg',
+        lightboxUrl: '../lightBox/index.html#2000-ml-square-bucket',
+        shadowColor: '#EDF6C9',
+        gradStart:   '#6AA700',
+        gradEnd:     '#EDF6C9'
     },
     {
-        id: 'square-bucket-container-4',
-        fromColor: '#CB55BB', toColor: '#CB55BB',
-        shadowColor: '#F6C9F0', gradStart: '#CB55BB', gradEnd: '#F6C9F0',
-        heroImg: '../global assets/Images/Square-bucket/4500-ml-square/container-img.webp',
-        textImg: '../global assets/Images/Square-bucket/4500-ml-square/4500-ml-square-text-content.svg',
-        lightboxUrl: '../lightBox/index.html#4500-ml-square-bucket'
+        heroImg:     '../global assets/Images/Square-bucket/4500-ml-square/container-img.webp',
+        textImg:     '../global assets/Images/Square-bucket/4500-ml-square/4500-ml-square-text-content.svg',
+        lightboxUrl: '../lightBox/index.html#4500-ml-square-bucket',
+        shadowColor: '#F6C9F0',
+        gradStart:   '#CB55BB',
+        gradEnd:     '#F6C9F0'
     },
     {
-        id: 'square-bucket-container-5',
-        fromColor: '#575BCC', toColor: '#575BCC',
-        shadowColor: '#C9D0F6', gradStart: '#5559CB', gradEnd: '#C9D0F6',
-        heroImg: '../global assets/Images/Square-bucket/5ltr-ghee/container-img.webp',
-        textImg: '../global assets/Images/Square-bucket/5ltr-ghee/5ltr-ghee-text-content.svg',
-        lightboxUrl: '../lightBox/index.html#5-ltr-ghee-square-bucket'
+        heroImg:     '../global assets/Images/Square-bucket/5ltr-ghee/container-img.webp',
+        textImg:     '../global assets/Images/Square-bucket/5ltr-ghee/5ltr-ghee-text-content.svg',
+        lightboxUrl: '../lightBox/index.html#5-ltr-ghee-square-bucket',
+        shadowColor: '#C9D0F6',
+        gradStart:   '#5559CB',
+        gradEnd:     '#C9D0F6'
     }
 ];
 
-let squareBucketCurrentIndex = 0;
-let squareBucketIsAnimating = false;
-let squareBucketAutoTimer = null;
-const SQUARE_BUCKET_AUTO_DELAY = 5000;
+const SBH_TOTAL = SB_BUCKET_PRODUCTS.length;  // ✅ FIXED
 
-// ── DOM ELEMENTS ──
-const squareBucketContainers = squareBucketItems.map(item => document.getElementById(item.id));
-const squareBucketHeroImg    = document.getElementById('square-bucket-hero-img');
-const squareBucketTextImg    = document.getElementById('square-bucket-text-img');
-const squareBucketIconsEl    = document.getElementById('square-bucket-icons');
-const squareBucketBgShadow   = document.getElementById('square-bucket-bg-shadow-path');
-const squareBucketGradStop1  = document.getElementById('square-bucket-grad-stop-1');
-const squareBucketGradStop2  = document.getElementById('square-bucket-grad-stop-2');
+const SBH_SLOT_CLASSES = [
+    'sb-hslot-0','sb-hslot-1','sb-hslot-2','sb-hslot-3','sb-hslot-4',
+    'sb-hexit-right','sb-hexit-left',
+    'sb-henter-right','sb-henter-left'
+];
 
-// ── HELPER: SET ACTIVE COLOR ──
-function squareBucketSetActiveColor(index) {
-    squareBucketContainers.forEach((el, i) => {
-        if (i === index) {
-            el.style.setProperty('--active-color', squareBucketItems[i].fromColor);
-        } else {
-            el.style.removeProperty('--active-color');
+let sbhCenter    = 0;
+let sbhAnimating = false;
+let sbhTimer     = null;
+const SBH_AUTO_DELAY = 5000;
+
+function sbhClearSlot(el) {
+    if (!el) return;
+    SBH_SLOT_CLASSES.forEach(c => el.classList.remove(c));
+}
+
+function sbhGetVisible(center) {
+    const arr = [];
+    for (let offset = -2; offset <= 2; offset++) {
+        arr.push((center + offset + SBH_TOTAL) % SBH_TOTAL);
+    }
+    return arr;
+}
+
+function sbhEl(idx) {
+    return document.getElementById(`sb-belt-${idx}`);
+}
+
+function sbhApplySlots(center, skipTransition) {
+    const visible = sbhGetVisible(center);
+
+    if (skipTransition) {
+        for (let i = 0; i < SBH_TOTAL; i++) {
+            const el = sbhEl(i);
+            if (el) el.style.transition = 'none';
+        }
+    }
+
+    visible.forEach((prodIdx, slotIdx) => {
+        const el = sbhEl(prodIdx);
+        if (!el) return;
+        sbhClearSlot(el);
+        el.classList.add(`sb-hslot-${slotIdx}`);
+    });
+
+    if (skipTransition) {
+        sbhEl(0) && sbhEl(0).offsetHeight;
+        requestAnimationFrame(() => {
+            for (let i = 0; i < SBH_TOTAL; i++) {
+                const el = sbhEl(i);
+                if (el) el.style.transition = '';
+            }
+        });
+    }
+
+    sbhCenter = center;
+}
+
+function sbhScrollLeft(steps, onComplete) {
+    const newCenter  = (sbhCenter + steps + SBH_TOTAL) % SBH_TOTAL;
+    const oldVisible = sbhGetVisible(sbhCenter);
+    const newVisible = sbhGetVisible(newCenter);
+    const oldSet     = new Set(oldVisible);
+    const newSet     = new Set(newVisible);
+
+    const exiting  = oldVisible.filter(i => !newSet.has(i));
+    const entering = newVisible.filter(i => !oldSet.has(i));
+    const staying  = newVisible.filter(i =>  oldSet.has(i));
+
+    exiting.forEach(idx => {
+        const el = sbhEl(idx);
+        if (!el) return;
+        sbhClearSlot(el);
+        el.classList.add('sb-hexit-left');
+    });
+
+    staying.forEach(idx => {
+        const el = sbhEl(idx);
+        if (!el) return;
+        sbhClearSlot(el);
+        el.classList.add(`sb-hslot-${newVisible.indexOf(idx)}`);
+    });
+
+    entering.forEach(idx => {
+        const el = sbhEl(idx);
+        if (!el) return;
+        sbhClearSlot(el);
+        el.style.transition = 'none';
+        el.classList.add('sb-henter-right');
+    });
+
+    setTimeout(() => {
+        entering.forEach(idx => {
+            const el = sbhEl(idx);
+            if (!el) return;
+            el.offsetHeight;
+            el.style.transition = '';
+            sbhClearSlot(el);
+            el.classList.add(`sb-hslot-${newVisible.indexOf(idx)}`);
+        });
+
+        setTimeout(() => {
+            exiting.forEach(idx => {
+                const el = sbhEl(idx);
+                if (!el) return;
+                el.style.transition = 'none';
+                sbhClearSlot(el);
+                el.classList.add('sb-henter-right');
+                el.offsetHeight;
+                el.style.transition = '';
+            });
+            sbhCenter = newCenter;
+            if (onComplete) onComplete();
+        }, 550);
+    }, 30);
+}
+
+function sbhScrollRight(steps, onComplete) {
+    const newCenter  = (sbhCenter - steps + SBH_TOTAL) % SBH_TOTAL;
+    const oldVisible = sbhGetVisible(sbhCenter);
+    const newVisible = sbhGetVisible(newCenter);
+    const oldSet     = new Set(oldVisible);
+    const newSet     = new Set(newVisible);
+
+    const exiting  = oldVisible.filter(i => !newSet.has(i));
+    const entering = newVisible.filter(i => !oldSet.has(i));
+    const staying  = newVisible.filter(i =>  oldSet.has(i));
+
+    exiting.forEach(idx => {
+        const el = sbhEl(idx);
+        if (!el) return;
+        sbhClearSlot(el);
+        el.classList.add('sb-hexit-right');
+    });
+
+    staying.forEach(idx => {
+        const el = sbhEl(idx);
+        if (!el) return;
+        sbhClearSlot(el);
+        el.classList.add(`sb-hslot-${newVisible.indexOf(idx)}`);
+    });
+
+    entering.forEach(idx => {
+        const el = sbhEl(idx);
+        if (!el) return;
+        sbhClearSlot(el);
+        el.style.transition = 'none';
+        el.classList.add('sb-henter-left');
+    });
+
+    setTimeout(() => {
+        entering.forEach(idx => {
+            const el = sbhEl(idx);
+            if (!el) return;
+            el.offsetHeight;
+            el.style.transition = '';
+            sbhClearSlot(el);
+            el.classList.add(`sb-hslot-${newVisible.indexOf(idx)}`);
+        });
+
+        setTimeout(() => {
+            exiting.forEach(idx => {
+                const el = sbhEl(idx);
+                if (!el) return;
+                el.style.transition = 'none';
+                sbhClearSlot(el);
+                el.classList.add('sb-henter-left');
+                el.offsetHeight;
+                el.style.transition = '';
+            });
+            sbhCenter = newCenter;
+            if (onComplete) onComplete();
+        }, 550);
+    }, 30);
+}
+
+function sbhGetDirection(clickedIdx) {
+    const visible = sbhGetVisible(sbhCenter);
+    const slotPos = visible.indexOf(clickedIdx);
+    if (slotPos < 2) return { direction: 'right', steps: 2 - slotPos };
+    if (slotPos > 2) return { direction: 'left',  steps: slotPos - 2 };
+    return { direction: 'left', steps: 0 };
+}
+
+function sbhUpdateContent(productIdx) {
+    const p = SB_BUCKET_PRODUCTS[productIdx];
+
+    const heroEl    = document.getElementById('square-bucket-hero-img');
+    const textEl    = document.getElementById('square-bucket-text-img');
+    const linkEl    = document.getElementById('square-bucket-360-link');
+    const shadow    = document.getElementById('square-bucket-bg-shadow-path');
+    const gradStop1 = document.getElementById('square-bucket-grad-stop-1');
+    const gradStop2 = document.getElementById('square-bucket-grad-stop-2');
+
+    if (!heroEl || !textEl) return;
+
+    if (shadow)    gsap.to(shadow,    { attr: { fill: p.shadowColor },          duration: 0.6 });
+    if (gradStop1) gsap.to(gradStop1, { attr: { 'stop-color': p.gradStart },    duration: 0.6 });
+    if (gradStop2) gsap.to(gradStop2, { attr: { 'stop-color': p.gradEnd },      duration: 0.6 });
+
+    gsap.to([heroEl, textEl], {
+        opacity: 0, duration: 0.25,
+        onComplete: () => {
+            heroEl.src = p.heroImg;
+            textEl.src = p.textImg;
+            if (linkEl) linkEl.href = p.lightboxUrl;
+            gsap.to([heroEl, textEl], { opacity: 1, duration: 0.45, ease: 'power2.out' });
         }
     });
 }
 
-// ── INTRO ANIMATION ──
+function sbhGoTo(targetIdx) {
+    if (sbhAnimating || targetIdx === sbhCenter) return;
+    sbhAnimating = true;
+    sbhStopTimer();
+
+    const { direction, steps } = sbhGetDirection(targetIdx);
+
+    sbhUpdateContent(targetIdx);
+
+    const done = () => { sbhAnimating = false; sbhStartTimer(); };
+
+    if (direction === 'left') {
+        sbhScrollLeft(steps, done);
+    } else {
+        sbhScrollRight(steps, done);
+    }
+}
+
+function sbhStartTimer() {
+    sbhStopTimer();
+    sbhTimer = setTimeout(() => {
+        if (sbhAnimating) return;
+        const next = (sbhCenter + 1) % SBH_TOTAL;
+        sbhGoTo(next);
+    }, SBH_AUTO_DELAY);
+}
+
+function sbhStopTimer() {
+    if (sbhTimer) { clearTimeout(sbhTimer); sbhTimer = null; }
+}
+
+function sbhBindClicks() {
+    for (let i = 0; i < SBH_TOTAL; i++) {
+        const el = sbhEl(i);
+        if (!el) continue;
+        el.addEventListener('click', () => sbhGoTo(i));
+        el.addEventListener('touchstart', e => e.stopPropagation(), { passive: true });
+        el.addEventListener('touchend', e => {
+            e.preventDefault();
+            e.stopPropagation();
+            sbhGoTo(i);
+        }, { passive: false });
+    }
+}
+
 function squareBucketIntroAnimation() {
+    sbhCenter    = 0;
+    sbhAnimating = false;
+    sbhStopTimer();
 
-    // ── RESET STATE ──
-    squareBucketCurrentIndex = 0;
-    squareBucketIsAnimating = false;
-    squareBucketStopAutoPlay();
+    sbhApplySlots(0, true);
 
-    // ── ADD THESE 3 LINES HERE ──
-    if (squareBucketGradStop1) squareBucketGradStop1.setAttribute('stop-color', squareBucketItems[0].gradStart);
-    if (squareBucketGradStop2) squareBucketGradStop2.setAttribute('stop-color', squareBucketItems[0].gradEnd);
-    if (squareBucketBgShadow)  squareBucketBgShadow.setAttribute('fill', squareBucketItems[0].shadowColor);
+    const p0 = SB_BUCKET_PRODUCTS[0];
+    const s  = document.getElementById('square-bucket-bg-shadow-path');
+    const g1 = document.getElementById('square-bucket-grad-stop-1');
+    const g2 = document.getElementById('square-bucket-grad-stop-2');
+    if (s)  s.setAttribute('fill', p0.shadowColor);
+    if (g1) g1.setAttribute('stop-color', p0.gradStart);
+    if (g2) g2.setAttribute('stop-color', p0.gradEnd);
 
-    // Reset strip items
-    squareBucketContainers.forEach(el => {
-        el.classList.remove('active');
-        el.style.removeProperty('--active-color');
-        gsap.set(el, { opacity: 0, scale: 0.5 });
-    });
+    const p      = SB_BUCKET_PRODUCTS[0];
+    const heroEl = document.getElementById('square-bucket-hero-img');
+    const textEl = document.getElementById('square-bucket-text-img');
+    const linkEl = document.getElementById('square-bucket-360-link');
+    if (heroEl) heroEl.src = p.heroImg;
+    if (textEl) textEl.src = p.textImg;
+    if (linkEl) linkEl.href = p.lightboxUrl;
 
-    // Reset images
-    gsap.set(squareBucketTextImg, { opacity: 0, x: -60 });
-    gsap.set(squareBucketHeroImg, { opacity: 0, x: 80 });
-    gsap.set(squareBucketIconsEl, { opacity: 0, y: 20 });
+    gsap.set([heroEl, textEl], { opacity: 0 });
+    gsap.set('#square-bucket-icons', { opacity: 0 });
 
-    // Reset src to first product
-    squareBucketHeroImg.src = squareBucketItems[0].heroImg;
-    squareBucketTextImg.src = squareBucketItems[0].textImg;
-    const tl = gsap.timeline({ onComplete: () => squareBucketStartAutoPlay() });
+    const tl = gsap.timeline({ onComplete: () => sbhStartTimer() });
 
     tl.from('#square-bucket-logo',          { opacity: 0, y: -30, duration: 0.6 })
       .from('#square-bucket-title-text',    { opacity: 0, y: -20, duration: 0.5 }, '-=0.3')
       .from('#square-bucket-subtitle-text', { opacity: 0, y: -15, duration: 0.5 }, '-=0.2')
       .from('#square-bucket-color-bg',      { opacity: 0, x: -100, duration: 0.7 }, '-=0.3')
-
-      // text-img slides in from left
-      .fromTo(squareBucketTextImg,
+      .fromTo(textEl,
             { opacity: 0, x: -60 },
-            { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' },
-            '-=0.4'
-      )
-
-      // hero-img slides in from right
-      .fromTo(squareBucketHeroImg,
+            { opacity: 1, x: 0, duration: 0.8, ease: 'power3.out' }, '-=0.4')
+      .fromTo(heroEl,
             { opacity: 0, x: 80 },
-            { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out' },
-            '-=0.6'
-      )
-
-      // icons fade up
-      .fromTo(squareBucketIconsEl,
+            { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out' }, '-=0.6')
+      .fromTo('#square-bucket-icons',
             { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.6 },
-            '-=0.4'
-      );
-
-    // Bottom strip items bounce up one by one
-    squareBucketContainers.forEach((el, i) => {
-        tl.to(el, {
-            opacity: 1,
-            scale: 1,
-            duration: 0.5,
-            ease: 'back.out(1.7)'
-        }, `-=${i === 0 ? 0.2 : 0.3}`);
-    });
-
-    // Set first item active + active color
-    // ── SET FIRST ITEM ACTIVE + initial lightbox link ──
-tl.add(() => {
-    squareBucketContainers[0].classList.add('active');
-    squareBucketSetActiveColor(0);
-
-    // ── ADD THIS LINE ONLY ──
-    const sbLink = document.getElementById('square-bucket-360-link');
-    if (sbLink) sbLink.href = squareBucketItems[0].lightboxUrl;
-});
+            { opacity: 1, y: 0, duration: 0.6 }, '-=0.4');
 }
 
-
-// ── SWITCH TO ITEM ──
-function squareBucketSwitchToItem(index) {
-    if (squareBucketIsAnimating || index === squareBucketCurrentIndex) return;
-    squareBucketIsAnimating = true;
-    squareBucketStopAutoPlay();
-
-    const activeItem = squareBucketItems[index];
-
-    // Update active class on strip
-    squareBucketContainers.forEach((el, i) => el.classList.toggle('active', i === index));
-
-    // Update active color
-    squareBucketSetActiveColor(index);
-
-    const tl = gsap.timeline({
-        onComplete: () => {
-            squareBucketIsAnimating = false;
-            squareBucketCurrentIndex = index;
-
-            // ── ADD THIS LINE ONLY ──
-            const sbLink = document.getElementById('square-bucket-360-link');
-            if (sbLink && activeItem.lightboxUrl) sbLink.href = activeItem.lightboxUrl;
-
-            squareBucketStartAutoPlay();
-        }
-    });
-
-    // ── rest of existing code unchanged ──
-    tl.to(squareBucketHeroImg, { opacity: 0, x: 40, duration: 0.3 }, 0);
-    tl.to(squareBucketTextImg, {
-        opacity: 0, x: -40, duration: 0.3,
-        onComplete: () => {
-            squareBucketHeroImg.src = activeItem.heroImg;
-            squareBucketTextImg.src = activeItem.textImg;
-        }
-    }, 0);
-    tl.to(squareBucketBgShadow,  { attr: { fill: activeItem.shadowColor }, duration: 0.6 }, 0);
-    tl.to(squareBucketGradStop1, { attr: { 'stop-color': activeItem.gradStart }, duration: 0.6 }, 0);
-    tl.to(squareBucketGradStop2, { attr: { 'stop-color': activeItem.gradEnd }, duration: 0.6 }, 0);
-    tl.fromTo(squareBucketTextImg,
-        { opacity: 0, x: -60 },
-        { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.35);
-    tl.fromTo(squareBucketHeroImg,
-        { opacity: 0, x: 60 },
-        { opacity: 1, x: 0, duration: 0.7, ease: 'power3.out' }, 0.35);
-}
-
-// ── AUTO PLAY ──
-function squareBucketStartAutoPlay() {
-    squareBucketStopAutoPlay();
-    squareBucketAutoTimer = setTimeout(() => {
-        const next = (squareBucketCurrentIndex + 1) % squareBucketItems.length;
-        squareBucketSwitchToItem(next);
-    }, SQUARE_BUCKET_AUTO_DELAY);
-}
-
-function squareBucketStopAutoPlay() {
-    if (squareBucketAutoTimer) clearTimeout(squareBucketAutoTimer);
-}
-
-// ── EVENT LISTENERS ──
-squareBucketContainers.forEach((el, i) => {
-    el.addEventListener('click', () => {
-        if (squareBucketIsAnimating) return;
-        squareBucketSwitchToItem(i);
-    });
-});
-
-// ── INIT ──
-window.addEventListener('DOMContentLoaded', () => {
-    if (typeof gsap !== 'undefined') {
+(function sbhSetup() {
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', () => {
+            sbhBindClicks();
+            squareBucketIntroAnimation();
+        });
+    } else {
+        sbhBindClicks();
         squareBucketIntroAnimation();
     }
-});
+})();
+
+// *******************************************SQUARE BUCKET CONTAINER ANIMATION CODE END************************************

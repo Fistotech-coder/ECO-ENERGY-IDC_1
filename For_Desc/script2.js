@@ -53,6 +53,7 @@ const containerModels = [
         containerImg: "../global assets/Images/Round-container/03-250ml/03-250-ml-round-container-img.webp",
         nameImg: "../global assets/Images/Round-container/03-250ml/03-250-ml.svg",
         textImg: "../global assets/Images/Round-container/03-250ml/03-250-ml-text.svg",
+        bottomBgImg: "../global assets/Images/Round-container/03-250ml/03-250-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#03-250-ml-round-container"
     },
     {
@@ -61,6 +62,7 @@ const containerModels = [
         containerImg: "../global assets/Images/Round-container/04-300ml/04-300-ml-round-container-img.webp",
         nameImg: "../global assets/Images/Round-container/04-300ml/04-300-ml.svg",
         textImg: "../global assets/Images/Round-container/04-300ml/04-300-ml-text.svg",
+        bottomBgImg: "../global assets/Images/Round-container/04-300ml/04-300-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#04-300-ml-round-container"
     },
     {
@@ -69,6 +71,7 @@ const containerModels = [
         containerImg: "../global assets/Images/Round-container/03-500ml/03-500-ml-round-container-img.webp",
         nameImg: "../global assets/Images/Round-container/03-500ml/03-500-ml.svg",
         textImg: "../global assets/Images/Round-container/03-500ml/03-500-ml-text.svg",
+        bottomBgImg: "../global assets/Images/Round-container/03-500ml/03-500-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#03-500-ml-round-container"
     },
     {
@@ -77,6 +80,7 @@ const containerModels = [
         containerImg: "../global assets/Images/Round-container/05-600ml/05-600-ml-round-container-img.webp",
         nameImg: "../global assets/Images/Round-container/05-600ml/05-600-ml.svg",
         textImg: "../global assets/Images/Round-container/05-600ml/05-600-ml-text.svg",
+        bottomBgImg: "../global assets/Images/Round-container/05-600ml/05-600-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#05-600-ml-round-container"
     },
     {
@@ -85,6 +89,7 @@ const containerModels = [
         containerImg: "../global assets/Images/Round-container/05-750ml/05-750-ml-round-container-img.webp",
         nameImg: "../global assets/Images/Round-container/05-750ml/05-750-ml.svg",
         textImg: "../global assets/Images/Round-container/05-750ml/05-750-ml-text.svg",
+        bottomBgImg: "../global assets/Images/Round-container/05-750ml/05-750-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#05-750-ml-round-container"
     },
     {
@@ -93,6 +98,7 @@ const containerModels = [
         containerImg: "../global assets/Images/Round-container/05-1000ml/05-1000-ml-round-container-img.webp",
         nameImg: "../global assets/Images/Round-container/05-1000ml/05-1000-ml.svg",
         textImg: "../global assets/Images/Round-container/05-1000ml/05-1000-ml-text.svg",
+        bottomBgImg: "../global assets/Images/Round-container/05-1000ml/05-1000-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#05-1000-ml-round-container"
     }
 ];
@@ -101,7 +107,11 @@ const containerModels = [
 let modelIndex = 0;
 let isRoundAnimating = false;
 const TOTAL = containerModels.length;
-
+// Bottom Background Elements (for crossfade)
+// Bottom Background Elements (for crossfade)
+const bottomBg1 = document.getElementById('round-bottom-bg-1');
+const bottomBg2 = document.getElementById('round-bottom-bg-2');
+let isBottomBgSwapped = false; // Track crossfade state
 // ─── DOM Slots ────────────────────────────────────────────────────────────────
 const slot0 = {
     wrapper: document.getElementById('card-slot-0'),
@@ -196,6 +206,15 @@ function initCarousel() {
         });
     });
 
+
+// 5.5 Initialize bottom background (no animation for first load)
+const firstModel = containerModels[0];
+bottomBg1.src = firstModel.bottomBgImg;
+bottomBg2.src = firstModel.bottomBgImg;
+bottomBg1.classList.remove('bottom-bg-hidden');
+bottomBg2.classList.remove('bottom-bg-visible');
+isBottomBgSwapped = false;
+
     // 6. Update bottom section
     updateBottom();
 
@@ -279,6 +298,8 @@ function goPrev() {
 }
 
 // ─── Update Bottom Section ────────────────────────────────────────────────────
+// ─── Update Bottom Section ────────────────────────────────────────────────────
+// ─── Update Bottom Section ────────────────────────────────────────────────────
 function updateBottom() {
     // Remove animation classes
     bottomImg.classList.remove('slide-in-active-left-img');
@@ -299,6 +320,34 @@ function updateBottom() {
     bottomName.classList.add('slide-in-active-left');
     bottomDesc.classList.add('slide-in-active');
 
+    // ─── Bottom Background Crossfade ───
+    if (!isBottomBgSwapped) {
+        // Show overlay (bg2), hide base (bg1)
+        bottomBg2.src = model.bottomBgImg;
+        bottomBg1.classList.add('bottom-bg-hidden');
+        bottomBg2.classList.add('bottom-bg-visible');
+        
+        // After transition, swap the base image
+        setTimeout(() => {
+            bottomBg1.src = model.bottomBgImg;
+            bottomBg1.classList.remove('bottom-bg-hidden');
+            bottomBg2.classList.remove('bottom-bg-visible');
+        }, 650);
+        
+    } else {
+        // Alternate approach for smooth continuous crossfade
+        bottomBg2.src = model.bottomBgImg;
+        bottomBg1.classList.add('bottom-bg-hidden');
+        bottomBg2.classList.add('bottom-bg-visible');
+        
+        setTimeout(() => {
+            bottomBg1.src = model.bottomBgImg;
+            bottomBg1.classList.remove('bottom-bg-hidden');
+            bottomBg2.classList.remove('bottom-bg-visible');
+        }, 650);
+    }
+
+    // Update lightbox link
     const roundLightboxLink = document.getElementById('round-container-360-link');
     if (roundLightboxLink && model.lightboxUrl) {
         roundLightboxLink.href = model.lightboxUrl;

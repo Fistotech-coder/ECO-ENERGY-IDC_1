@@ -1629,8 +1629,14 @@
                             class="absolute top-[55%] right-[15%] w-[8%] cursor-pointer z-20 no-flip-zone" />
 
                         <!-- Bottom section -->
-                        <img src="../global assets/Images/Round-container/bottom-img.webp" alt="bottom-img"
-                            class="absolute bottom-[5%] left-0 w-[45%]" />
+                        <!-- Bottom Background Container for Crossfade -->
+<!-- Bottom Background Container for Crossfade -->
+<div class="absolute bottom-[5%] left-0 w-[45%] bottom-bg-wrapper">
+    <img id="round-bottom-bg-1" src="" alt="bottom-img"
+        class="bottom-bg-img-base" />
+    <img id="round-bottom-bg-2" src="" alt="bottom-img"
+        class="bottom-bg-img-overlay" />
+</div>
                         <!-- <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
                             class="absolute bottom-[35%] left-[10%] w-[8%] " />
 
@@ -2195,12 +2201,12 @@
                         </div>
 
                         <img id="square-bucket-icons" src="../global assets/Images/Square-bucket/icons.svg" alt="icons"
-                            class="absolute top-[62%] w-[60%] left-[20%] z-3" />
+                            class="absolute top-[58%] w-[60%] left-[20%] z-3" />
 
 
                         <img id="square-bucket-text-img"
                             src="../global assets/Images/Square-bucket/1500-ml/1500-ml-text-content.svg"
-                            alt="container image" class="absolute top-[16%] w-[40%] left-[0%] z-3" />
+                            alt="container image" class="absolute top-[17.5%] w-[40%] left-[0%] z-3" />
 
                         <!-- <img id="square-bucket-hero-img" src="../global assets/Images/Square-bucket/1500-ml/container-img.webp"
         alt="container image" class="absolute top-[16%] w-[60%] right-[5%] z-3" /> -->
@@ -2217,90 +2223,22 @@
                                 alt="container image" style="width:100%; cursor:pointer;" />
 
                         </a>
-
-
-
-                        <div id="square-bucket-bottom-strip"
-                            class="absolute w-[100%] h-[18%] bottom-[5%] left-[0%] flex no-flip-zone">
-
-                            <!-- ITEM 1 -->
-                            <div id="square-bucket-container-1"
-                                class="square-bucket-bottom-item w-[20%] h-[100%] bg-gradient-to-r from-[#BEA225] to-[#BEA225] flex flex-col items-center justify-center"
-                                data-from="#000000" data-to="#61DEF4" data-shadow="#a0f0ea"
-                                data-hero-img="../global assets/Images/Square-bucket/1500-ml/container-img.webp"
-                                data-grad-start="#575BCC" data-grad-end="#575BCC">
-
-                                <!-- SVG Image -->
-                                <img src="../global assets/Images/Square-bucket/01.svg" alt="01" class="sb-icon-img" />
-
-                                <!-- Text Wrapper -->
-                                <div class="sb-text-content">
-                                    <span class="sb-text-title">1500 ML</span>
-                                    <span class="sb-text-subtitle">Square Bucket</span>
-                                </div>
-                            </div>
-
-                            <!-- ITEM 2 -->
-                            <div id="square-bucket-container-2"
-                                class="square-bucket-bottom-item w-[20%] h-[100%] bg-gradient-to-r from-[#BE8625] to-[#BE8625] flex flex-col items-center justify-center"
-                                data-from="#BE8625" data-to="#F4C061" data-shadow="#f3d79c"
-                                data-hero-img="../global assets/Images/Square-bucket/2ltr-ghee/container-img.webp"
-                                data-grad-start="#c78f2b" data-grad-end="#e6b35a">
-
-                                <img src="../global assets/Images/Square-bucket/02.svg" alt="02" class="sb-icon-img" />
-
-                                <div class="sb-text-content">
-                                    <span class="sb-text-title">2 Ltr Ghee</span>
-                                    <span class="sb-text-subtitle">Square Bucket</span>
-                                </div>
-                            </div>
-
-                            <!-- ITEM 3 -->
-                            <div id="square-bucket-container-3"
-                                class="square-bucket-bottom-item w-[20%] h-[100%] bg-gradient-to-r from-[#6AA700] to-[#6AA700] flex flex-col items-center justify-center"
-                                data-from="#BE5525" data-to="#F49961" data-shadow="#f4c9a1"
-                                data-hero-img="../global assets/Images/Square-bucket/2000-ml-square/container-img.webp"
-                                data-grad-start="#a84820" data-grad-end="#d88040">
-
-                                <img src="../global assets/Images/Square-bucket/03.svg" alt="03" class="sb-icon-img" />
-
-                                <div class="sb-text-content">
-                                    <span class="sb-text-title">2000 ML</span>
-                                    <span class="sb-text-subtitle">Square Bucket</span>
-                                </div>
-                            </div>
-
-                            <!-- ITEM 4 -->
-                            <div id="square-bucket-container-4"
-                                class="square-bucket-bottom-item w-[20%] h-[100%] bg-gradient-to-r from-[#CB55BB] to-[#CB55BB] flex flex-col items-center justify-center"
-                                data-from="#8A2BE2" data-to="#9370DB" data-shadow="#d8c2f3"
-                                data-hero-img="../global assets/Images/Square-bucket/4500-ml-square/container-img.webp"
-                                data-grad-start="#7222c9" data-grad-end="#8a5fd8">
-
-                                <img src="../global assets/Images/Square-bucket/04.svg" alt="04" class="sb-icon-img" />
-
-                                <div class="sb-text-content">
-                                    <span class="sb-text-title">4500 ML</span>
-                                    <span class="sb-text-subtitle">Square Bucket</span>
-                                </div>
-                            </div>
-
-                            <!-- ITEM 5 -->
-                            <div id="square-bucket-container-5"
-                                class="square-bucket-bottom-item w-[20%] h-[100%] bg-gradient-to-r from-[#575BCC] to-[#575BCC] flex flex-col items-center justify-center"
-                                data-from="#0b70f5" data-to="#0b70f5" data-shadow="#ffe0cc"
-                                data-hero-img="../global assets/Images/Square-bucket/5ltr-ghee/container-img.webp"
-                                data-grad-start="#0b70f5" data-grad-end="#ff8c66">
-
-                                <img src="../global assets/Images/Square-bucket/05.svg" alt="05" class="sb-icon-img" />
-
-                                <div class="sb-text-content">
-                                    <span class="sb-text-title">5 Ltr Ghee</span>
-                                    <span class="sb-text-subtitle">Square Bucket</span>
-                                </div>
-                            </div>
-
+<div class="arrow absolute top-[68%] left-[48%] z-[111] rotate-[90deg] no-flip-zone" >
+                            <span>›</span>
+                            <span>›</span>
                         </div>
+
+
+                        <!-- BOTTOM BELT — 5 SVG images, horizontal -->
+<div id="square-bucket-bottom-strip" class="no-flip-zone">
+    <div id="sb-belt-track">
+        <img id="sb-belt-0" class="sb-belt-img" src="../global assets/Images/Square-bucket/1500-ml/1500-ml-bottom-img.svg" alt="1500ml" data-idx="0" />
+        <img id="sb-belt-1" class="sb-belt-img" src="../global assets/Images/Square-bucket/2ltr-ghee/2-ltr-ghee-bottom-img.svg" alt="2ltr ghee" data-idx="1" />
+        <img id="sb-belt-2" class="sb-belt-img" src="../global assets/Images/Square-bucket/2000-ml-square/2000-ml-bottom-img.svg" alt="2000ml" data-idx="2" />
+        <img id="sb-belt-3" class="sb-belt-img" src="../global assets/Images/Square-bucket/4500-ml-square/4500-ml-bottom-img.svg" alt="4500ml" data-idx="3" />
+        <img id="sb-belt-4" class="sb-belt-img" src="../global assets/Images/Square-bucket/5ltr-ghee/5-ltr-ghee-bottom-img.svg" alt="5ltr ghee" data-idx="4" />
+    </div>
+</div>
 
                          <span class="page-corner-no page-corner-left">10</span>
                     </div>
@@ -2480,7 +2418,7 @@
 
                         <img id="ice-cream-round-container-name"
                             src="../global assets/Images/Ice-cream-round/100ml/100ml.svg" alt="background-img"
-                            class="icr-reveal-el absolute top-[62%] left-[37.5%] w-[25%] " />
+                            class="icr-reveal-el absolute top-[61%] left-[37.5%] w-[25%] " />
                         <img id="ice-cream-round-iml-moq"
                             src="../global assets/Images/Ice-cream-round/100ml/iml-moq.svg" alt="background-img"
                             class="icr-reveal-el absolute top-[68%] left-[35%] w-[30%] " />
