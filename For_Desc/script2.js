@@ -51,7 +51,7 @@ const containerModels = [
         id: "03-250ml",
         cardImg: "../global assets/Images/Round-container/03-250ml/03-250-ml-card-img.svg",
         containerImg: "../global assets/Images/Round-container/03-250ml/03-250-ml-round-container-img.webp",
-        nameImg: "../global assets/Images/Round-container/03-250ml/03-250-ml.svg",
+        nameImg: "../global assets/Images/Round-container/IML-on-lid-and-bottom-available.svg",
         textImg: "../global assets/Images/Round-container/03-250ml/03-250-ml-text.svg",
         bottomBgImg: "../global assets/Images/Round-container/03-250ml/03-250-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#03-250-ml-round-container"
@@ -60,7 +60,7 @@ const containerModels = [
         id: "04-300ml",
         cardImg: "../global assets/Images/Round-container/04-300ml/04-300-ml-card-img.svg",
         containerImg: "../global assets/Images/Round-container/04-300ml/04-300-ml-round-container-img.webp",
-        nameImg: "../global assets/Images/Round-container/04-300ml/04-300-ml.svg",
+        nameImg: "../global assets/Images/Round-container/IML-on-lid-and-bottom-available.svg",
         textImg: "../global assets/Images/Round-container/04-300ml/04-300-ml-text.svg",
         bottomBgImg: "../global assets/Images/Round-container/04-300ml/04-300-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#04-300-ml-round-container"
@@ -69,7 +69,7 @@ const containerModels = [
         id: "03-500ml",
         cardImg: "../global assets/Images/Round-container/03-500ml/03-500-ml-card-img.svg",
         containerImg: "../global assets/Images/Round-container/03-500ml/03-500-ml-round-container-img.webp",
-        nameImg: "../global assets/Images/Round-container/03-500ml/03-500-ml.svg",
+        nameImg: "../global assets/Images/Round-container/IML-on-lid-and-bottom-available.svg",
         textImg: "../global assets/Images/Round-container/03-500ml/03-500-ml-text.svg",
         bottomBgImg: "../global assets/Images/Round-container/03-500ml/03-500-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#03-500-ml-round-container"
@@ -78,7 +78,7 @@ const containerModels = [
         id: "05-600ml",
         cardImg: "../global assets/Images/Round-container/05-600ml/05-600-ml-card-img.svg",
         containerImg: "../global assets/Images/Round-container/05-600ml/05-600-ml-round-container-img.webp",
-        nameImg: "../global assets/Images/Round-container/05-600ml/05-600-ml.svg",
+        nameImg: "../global assets/Images/Round-container/IML-on-lid-and-bottom-available.svg",
         textImg: "../global assets/Images/Round-container/05-600ml/05-600-ml-text.svg",
         bottomBgImg: "../global assets/Images/Round-container/05-600ml/05-600-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#05-600-ml-round-container"
@@ -87,7 +87,7 @@ const containerModels = [
         id: "05-750ml",
         cardImg: "../global assets/Images/Round-container/05-750ml/05-750-ml-card-img.svg",
         containerImg: "../global assets/Images/Round-container/05-750ml/05-750-ml-round-container-img.webp",
-        nameImg: "../global assets/Images/Round-container/05-750ml/05-750-ml.svg",
+        nameImg: "../global assets/Images/Round-container/IML-on-lid-and-bottom-available.svg",
         textImg: "../global assets/Images/Round-container/05-750ml/05-750-ml-text.svg",
         bottomBgImg: "../global assets/Images/Round-container/05-750ml/05-750-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#05-750-ml-round-container"
@@ -96,7 +96,7 @@ const containerModels = [
         id: "05-1000ml",
         cardImg: "../global assets/Images/Round-container/05-1000ml/05-1000-ml-card-img.svg",
         containerImg: "../global assets/Images/Round-container/05-1000ml/05-1000-ml-round-container-img.webp",
-        nameImg: "../global assets/Images/Round-container/05-1000ml/05-1000-ml.svg",
+        nameImg: "../global assets/Images/Round-container/IML-on-lid-and-bottom-available.svg",
         textImg: "../global assets/Images/Round-container/05-1000ml/05-1000-ml-text.svg",
         bottomBgImg: "../global assets/Images/Round-container/05-1000ml/05-1000-bottom-img.webp",
         lightboxUrl: "../lightBox/index.html#05-1000-ml-round-container"

@@ -1435,7 +1435,7 @@
 
                         <!-- Bottom Texts - Add IDs -->
                         <img id="smart-packing-text" src="../global assets/Images/HomePage/smart-packing-text.svg"
-                            alt="smart-packing" class="absolute top-[50%] left-[5%] w-[47%] anim-hidden" />
+                            alt="smart-packing" class="absolute top-[50%] left-[5%] w-[56%] anim-hidden" />
 
                         <img id="innovate-today-text" src="../global assets/Images/HomePage/for-a-green-future.svg"
                             alt="innovate-today" class="absolute top-[72%] left-[5%] w-[48%] anim-hidden" />
@@ -1656,7 +1656,7 @@
 
                         </a>
                         <img id="round-current-container-name-text" src="" alt="name"
-                            class="absolute bottom-[8%] left-[15%] w-[18%]" />
+                            class="absolute bottom-[8%] left-[2%] w-[40%]" />
                         <img id="round-current-container-text" src="" alt="text"
                             class="absolute bottom-[13%] right-[10%] w-[40%]" />
 
@@ -4027,178 +4027,143 @@ if (page === 7) {
             updateActiveThumb(initialPage);
         });
 
-        // ==================== SIMPLE AUTOPLAY FUNCTIONALITY ====================
-        (function () {
-            const autoplayBtn = document.getElementById('iconAutoplay');
-            const autoplayProgress = document.getElementById('autoplayProgress');
+ // ==================== SIMPLE AUTOPLAY FUNCTIONALITY ====================
+(function () {
+    const autoplayBtn = document.getElementById('iconAutoplay');
+    const autoplayProgress = document.getElementById('autoplayProgress');
 
-            let isAutoPlaying = false;
-            let autoplayInterval = null;
-            let progressInterval = null;
-            const autoplayDelay = 5000; // 5 seconds per page
-            let currentProgress = 0;
+    let isAutoPlaying = false;
+    let autoplayInterval = null;
+    let progressInterval = null;
+    const autoplayDelay = 3000; // ✅ Reduced to 3 seconds per page
+    let currentProgress = 0;
 
-            // Make isAutoPlaying globally accessible
-            window.isAutoPlaying = false;
+    window.isAutoPlaying = false;
 
-            // Function to update icon state
-            function updateAutoplayIcon(playing) {
-                if (!autoplayBtn) return;
+    function updateAutoplayIcon(playing) {
+        if (!autoplayBtn) return;
 
-                if (playing) {
-                    autoplayBtn.classList.add('active');
-                    autoplayBtn.innerHTML = `
+        if (playing) {
+            autoplayBtn.classList.add('active');
+            autoplayBtn.innerHTML = `
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10"/>
                     <line x1="10" y1="8" x2="10" y2="16"/>
                     <line x1="14" y1="8" x2="14" y2="16"/>
                 </svg>
             `;
-                } else {
-                    autoplayBtn.classList.remove('active');
-                    autoplayBtn.innerHTML = `
+        } else {
+            autoplayBtn.classList.remove('active');
+            autoplayBtn.innerHTML = `
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <circle cx="12" cy="12" r="10"/>
                     <polygon points="10 8 16 12 10 16 10 8" fill="currentColor"/>
                 </svg>
             `;
-                }
+        }
+    }
+
+    function updateProgress() {
+        if (isAutoPlaying) {
+            currentProgress += (100 / (autoplayDelay / 100));
+            if (currentProgress >= 100) currentProgress = 0;
+            if (autoplayProgress) autoplayProgress.style.width = currentProgress + '%';
+        }
+    }
+
+    function flipNext() {
+        const currentPage = $('#flipbook').turn('page');
+        const totalPages = $('#flipbook').turn('pages');
+
+        if (currentPage >= totalPages) {
+            // ✅ Already on last page — stop autoplay, stay here
+            stopAutoplay();
+            return;
+        }
+
+        $('#flipbook').turn('next');
+        currentProgress = 0;
+    }
+
+    function startAutoplay() {
+        if (isAutoPlaying) return;
+
+        isAutoPlaying = true;
+        window.isAutoPlaying = true;
+        updateAutoplayIcon(true); // ✅ Icon updates immediately
+
+        if (autoplayProgress) {
+            autoplayProgress.classList.add('active');
+            autoplayProgress.style.width = '0%';
+        }
+
+       // ✅ If on last page, go to page 1 first then start autoplay
+        const currentPage = $('#flipbook').turn('page');
+        const totalPages = $('#flipbook').turn('pages');
+
+        if (currentPage >= totalPages) {
+            $('#flipbook').turn('page', 1);
+            currentProgress = 0;
+        } else {
+            flipNext();
+        }
+
+        currentProgress = 0;
+        progressInterval = setInterval(updateProgress, 100);
+
+        // ✅ Then keep flipping every autoplayDelay ms
+        autoplayInterval = setInterval(flipNext, autoplayDelay);
+
+        console.log('✅ Autoplay started - immediate first flip');
+    }
+
+    function stopAutoplay() {
+        if (!isAutoPlaying) return;
+
+        isAutoPlaying = false;
+        window.isAutoPlaying = false;
+        updateAutoplayIcon(false); // ✅ Icon updates immediately
+
+        if (autoplayProgress) {
+            autoplayProgress.classList.remove('active');
+            autoplayProgress.style.width = '0%';
+        }
+
+        if (autoplayInterval) { clearInterval(autoplayInterval); autoplayInterval = null; }
+        if (progressInterval) { clearInterval(progressInterval); progressInterval = null; }
+
+        currentProgress = 0;
+        console.log('⏸️ Autoplay stopped');
+    }
+
+    if (autoplayBtn) {
+        autoplayBtn.addEventListener('click', function (e) {
+            e.stopPropagation();
+            if (isAutoPlaying) {
+                stopAutoplay();
+            } else {
+                startAutoplay();
             }
+        });
+    }
 
-            // Function to update progress bar (0-100% in 5 seconds)
-            function updateProgress() {
-                if (isAutoPlaying) {
-                    currentProgress += (100 / (autoplayDelay / 100)); // Update every 100ms
-                    if (currentProgress >= 100) {
-                        currentProgress = 0;
-                    }
-                    if (autoplayProgress) {
-                        autoplayProgress.style.width = currentProgress + '%';
-                    }
-                }
-            }
+    // ✅ Stop autoplay only when user manually drags a corner
+    $('#flipbook').bind('start', function (event, pageObject, corner) {
+        if (isAutoPlaying && corner) {
+            stopAutoplay();
+        }
+    });
 
-            // Function to start autoplay
-            function startAutoplay() {
-                if (isAutoPlaying) return;
+    // Spacebar toggle
+    document.addEventListener('keydown', function (e) {
+        if (e.code === 'Space' && !e.target.matches('input, textarea')) {
+            e.preventDefault();
+            if (isAutoPlaying) { stopAutoplay(); } else { startAutoplay(); }
+        }
+    });
 
-                isAutoPlaying = true;
-                window.isAutoPlaying = true;
-                updateAutoplayIcon(true);
-
-                // Show progress bar
-                if (autoplayProgress) {
-                    autoplayProgress.classList.add('active');
-                    autoplayProgress.style.width = '0%';
-                }
-
-                // Start progress bar animation (updates every 100ms)
-                currentProgress = 0;
-                progressInterval = setInterval(updateProgress, 100);
-
-                // Start page flipping (every 5 seconds)
-                autoplayInterval = setInterval(() => {
-                    const currentPage = $('#flipbook').turn('page');
-                    const totalPages = $('#flipbook').turn('pages');
-
-                    if (currentPage < totalPages) {
-                        $('#flipbook').turn('next');
-                        currentProgress = 0; // Reset progress bar for next page
-                    } else {
-                        // Reached last page, stop autoplay
-                        stopAutoplay();
-
-                        // Optional: Show completion message
-                        console.log('Autoplay completed - reached last page');
-                    }
-                }, autoplayDelay);
-
-                console.log('✅ Autoplay started - 5 seconds per page');
-            }
-
-            // Function to stop autoplay
-            function stopAutoplay() {
-                if (!isAutoPlaying) return;
-
-                isAutoPlaying = false;
-                window.isAutoPlaying = false;
-                updateAutoplayIcon(false);
-
-                // Hide and reset progress bar
-                if (autoplayProgress) {
-                    autoplayProgress.classList.remove('active');
-                    autoplayProgress.style.width = '0%';
-                }
-
-                // Clear intervals
-                if (autoplayInterval) {
-                    clearInterval(autoplayInterval);
-                    autoplayInterval = null;
-                }
-
-                if (progressInterval) {
-                    clearInterval(progressInterval);
-                    progressInterval = null;
-                }
-
-                currentProgress = 0;
-
-                console.log('⏸️ Autoplay stopped');
-            }
-
-            // Toggle autoplay on button click
-            if (autoplayBtn) {
-                autoplayBtn.addEventListener('click', function (e) {
-                    e.stopPropagation();
-
-                    if (isAutoPlaying) {
-                        stopAutoplay();
-                    } else {
-                        startAutoplay();
-                    }
-                });
-            }
-
-            // Stop autoplay when user manually flips page
-            $('#flipbook').bind('start', function (event, pageObject, corner) {
-                // Only stop if user initiated (not autoplay)
-                if (isAutoPlaying && corner) {
-                    stopAutoplay();
-                    console.log('⏸️ Autoplay stopped - user flipped page manually');
-                }
-            });
-
-            // Keyboard shortcut: Press SPACEBAR to toggle autoplay
-            document.addEventListener('keydown', function (e) {
-                if (e.code === 'Space' && !e.target.matches('input, textarea')) {
-                    e.preventDefault();
-
-                    if (isAutoPlaying) {
-                        stopAutoplay();
-                    } else {
-                        startAutoplay();
-                    }
-                }
-            });
-
-            // Stop autoplay when zoomed
-            document.addEventListener('click', function (e) {
-                if ((e.target.id === 'zoomInBtn' || e.target.id === 'iconZoomIn') && isAutoPlaying) {
-                    stopAutoplay();
-                    console.log('⏸️ Autoplay stopped - zoom activated');
-                }
-            });
-
-            // Initialize icon
-            updateAutoplayIcon(false);
-
-        })();
-
-
-
-
-
-
+    updateAutoplayIcon(false);
+})();
 
 
 
