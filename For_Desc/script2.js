@@ -382,23 +382,24 @@ function resetAutoplay() {
 
 
 // **********************************Ice Cream Round Cup Animation code start*********************************
-// ================================
-// ICE CREAM ROUND — CAROUSEL JS
-// ================================
+
 
 const iceCreamRoundProducts = [
   {
     index: 0,
-    backgroundImg:        "../global assets/Images/Ice-cream-round/100ml/background-img.webp",
-    textImg:              "../global assets/Images/Ice-cream-round/100ml/iml-ice-cream-round.svg",
-    currentContainerImg:  "../global assets/Images/Ice-cream-round/100ml/100ml-container.webp",
-    previousContainerImg: "../global assets/Images/Ice-cream-round/125ml/125ml-container.webp",
-    nextContainerImg:     "../global assets/Images/Ice-cream-round/115ml/115ml-container.webp",
-    containerNameImg:     "../global assets/Images/Ice-cream-round/100ml/100ml.svg",
-    imlMoqImg:            "../global assets/Images/Ice-cream-round/100ml/iml-moq.svg",
-    productCodeImg:       "../global assets/Images/Ice-cream-round/100ml/product-code.svg",
-    contentImg:           "../global assets/Images/Ice-cream-round/100ml/content.svg",
-    lightboxUrl:          "../lightBox/index.html#100-ml-ice-cream-round-container"
+    backgroundImg:          "../global assets/Images/Ice-cream-round/100ml/background-img.webp",
+    textImg:                "../global assets/Images/Ice-cream-round/100ml/iml-ice-cream-round.svg",
+    currentContainerImg:    "../global assets/Images/Ice-cream-round/100ml/100ml-container.webp",
+    previousContainerImg:   "../global assets/Images/Ice-cream-round/125ml/125ml-container.webp",
+    nextContainerImg:       "../global assets/Images/Ice-cream-round/115ml/115ml-container.webp",
+    containerNameImg:       "../global assets/Images/Ice-cream-round/100ml/100ml.svg",
+    imlMoqImg:              "../global assets/Images/Ice-cream-round/100ml/iml-moq.svg",
+    productCodeImg:         "../global assets/Images/Ice-cream-round/100ml/product-code.svg",
+    contentImg:             "../global assets/Images/Ice-cream-round/100ml/content.svg",
+    iceCreamRoundTopImg:    "../global assets/Images/Ice-cream-round/100ml/top-icon.svg",
+    iceCreamRoundBottomImg: "../global assets/Images/Ice-cream-round/100ml/bottom-icon.svg",
+    iceCreamRoundHeightImg: "../global assets/Images/Ice-cream-round/100ml/height-icon.svg",
+    lightboxUrl:            "../lightBox/index.html#100-ml-ice-cream-round-container"
   },
   {
     index: 1,
@@ -411,6 +412,9 @@ const iceCreamRoundProducts = [
     imlMoqImg:            "../global assets/Images/Ice-cream-round/115ml/iml-moq.svg",
     productCodeImg:       "../global assets/Images/Ice-cream-round/115ml/product-code.svg",
     contentImg:           "../global assets/Images/Ice-cream-round/115ml/content.svg",
+    iceCreamRoundTopImg:    "../global assets/Images/Ice-cream-round/115ml/top-icon.svg",
+    iceCreamRoundBottomImg: "../global assets/Images/Ice-cream-round/115ml/bottom-icon.svg",
+    iceCreamRoundHeightImg: "../global assets/Images/Ice-cream-round/115ml/height-icon.svg",
     lightboxUrl:          "../lightBox/index.html#115-ml-ice-cream-round-container"
   },
   {
@@ -424,6 +428,9 @@ const iceCreamRoundProducts = [
     imlMoqImg:            "../global assets/Images/Ice-cream-round/125ml/iml-moq.svg",
     productCodeImg:       "../global assets/Images/Ice-cream-round/125ml/product-code.svg",
     contentImg:           "../global assets/Images/Ice-cream-round/125ml/content.svg",
+    iceCreamRoundTopImg:    "../global assets/Images/Ice-cream-round/125ml/top-icon.svg",
+    iceCreamRoundBottomImg: "../global assets/Images/Ice-cream-round/125ml/bottom-icon.svg",
+    iceCreamRoundHeightImg: "../global assets/Images/Ice-cream-round/125ml/height-icon.svg",
     lightboxUrl:          "../lightBox/index.html#125-ml-ice-cream-round-container"
   },
 ];
@@ -445,6 +452,9 @@ const iceCreamRoundEl = {
   imlMoq:        document.getElementById("ice-cream-round-iml-moq"),
   productCode:   document.getElementById("ice-cream-round-product-code"),
   content:       document.getElementById("ice-cream-round-content"),
+  iceCreamRoundTop: document.getElementById("ice-cream-round-top"),
+  iceCreamRoundBottom: document.getElementById("ice-cream-round-bottom"),
+  iceCreamRoundHeight: document.getElementById("ice-cream-round-height"),
   nextBtn:       document.getElementById("ice-cream-round-next-btn"),
   previousBtn:   document.getElementById("ice-cream-round-previous-btn"),
 };
@@ -500,11 +510,15 @@ function iceCreamRoundSwapImages(product) {
   iceCreamRoundEl.imlMoq.src         = product.imlMoqImg;
   iceCreamRoundEl.productCode.src    = product.productCodeImg;
   iceCreamRoundEl.content.src        = product.contentImg;
+  iceCreamRoundEl.iceCreamRoundTop.src  = product.iceCreamRoundTopImg;
+  iceCreamRoundEl.iceCreamRoundBottom.src  = product.iceCreamRoundBottomImg;
+  iceCreamRoundEl.iceCreamRoundHeight.src  = product.iceCreamRoundHeightImg;
+  
 }
 
 // ── Staggered text reveal ─────────────────────────────────────
 const iceCreamRoundRevealOrder = [
-  "textImg", "containerName", "imlMoq", "productCode", "content"
+  "textImg", "containerName", "imlMoq", "productCode", "content", "iceCreamRoundTop", "iceCreamRoundBottom", "iceCreamRoundHeight"
 ];
 
 function iceCreamRoundFireReveals() {

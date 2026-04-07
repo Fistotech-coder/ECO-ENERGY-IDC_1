@@ -1024,7 +1024,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // ==================== APPLY ZOOM FUNCTION ====================
     function applyZoom(zoomLevel) {
-        currentZoom = Math.max(100, Math.min(150, zoomLevel));
+        currentZoom = Math.max(100, Math.min(130, zoomLevel));
         const scale = currentZoom / 100;
         isZoomed = currentZoom > 100;
 
@@ -1057,8 +1057,8 @@ document.addEventListener("DOMContentLoaded", () => {
             zoomOutBtn.style.pointerEvents = currentZoom <= 100 ? 'none' : 'auto';
         }
         if (zoomInBtn) {
-            zoomInBtn.style.opacity = currentZoom >= 150 ? '0.4' : '1';
-            zoomInBtn.style.pointerEvents = currentZoom >= 150 ? 'none' : 'auto';
+            zoomInBtn.style.opacity = currentZoom >= 130 ? '0.4' : '1';
+            zoomInBtn.style.pointerEvents = currentZoom >= 130 ? 'none' : 'auto';
         }
 
         // Update blocked elements visual state
@@ -1612,28 +1612,27 @@ $(document).ready(function () {
 
 
 // *******************************************SQUARE BUCKET CONTAINER ANIAMTION CODE START************************************
-// *******************************************SQUARE BUCKET CONTAINER ANIMATION CODE START************************************
+
 
 const SB_BUCKET_PRODUCTS = [
     {
         heroImg:     '../global assets/Images/Square-bucket/1500-ml/container-img.webp',
         textImg:     '../global assets/Images/Square-bucket/1500-ml/1500-ml-text-content.svg',
+        SBTopIconImg:     '../global assets/Images/Square-bucket/1500-ml/top-icon.svg',
+        SBBottomIconImg:     '../global assets/Images/Square-bucket/1500-ml/bottom-icon.svg',
+        SBHeightIconImg:     '../global assets/Images/Square-bucket/1500-ml/height-icon.svg',
         lightboxUrl: '../lightBox/index.html#1500-ml-square-bucket',
         shadowColor: '#FCFFB2',
         gradStart:   '#BEA225',
         gradEnd:     '#EFF461'
     },
-    {
-        heroImg:     '../global assets/Images/Square-bucket/2ltr-ghee/container-img.webp',
-        textImg:     '../global assets/Images/Square-bucket/2ltr-ghee/2-ltr-ghee-text-content.svg',
-        lightboxUrl: '../lightBox/index.html#2-ltr-ghee-square-bucket',
-        shadowColor: '#f3d79c',
-        gradStart:   '#c78f2b',
-        gradEnd:     '#e6b35a'
-    },
+   
     {
         heroImg:     '../global assets/Images/Square-bucket/2000-ml-square/container-img.webp',
         textImg:     '../global assets/Images/Square-bucket/2000-ml-square/2000-ml-square-text-image.svg',
+        SBTopIconImg:     '../global assets/Images/Square-bucket/2000-ml-square/top-icon.svg',
+        SBBottomIconImg:     '../global assets/Images/Square-bucket/2000-ml-square/bottom-icon.svg',
+        SBHeightIconImg:     '../global assets/Images/Square-bucket/2000-ml-square/height-icon.svg',
         lightboxUrl: '../lightBox/index.html#2000-ml-square-bucket',
         shadowColor: '#EDF6C9',
         gradStart:   '#6AA700',
@@ -1642,14 +1641,31 @@ const SB_BUCKET_PRODUCTS = [
     {
         heroImg:     '../global assets/Images/Square-bucket/4500-ml-square/container-img.webp',
         textImg:     '../global assets/Images/Square-bucket/4500-ml-square/4500-ml-square-text-content.svg',
+        SBTopIconImg:     '../global assets/Images/Square-bucket/4500-ml-square/top-icon.svg',
+        SBBottomIconImg:     '../global assets/Images/Square-bucket/4500-ml-square/bottom-icon.svg',
+        SBHeightIconImg:     '../global assets/Images/Square-bucket/4500-ml-square/height-icon.svg',
         lightboxUrl: '../lightBox/index.html#4500-ml-square-bucket',
         shadowColor: '#F6C9F0',
         gradStart:   '#CB55BB',
         gradEnd:     '#F6C9F0'
     },
+     {
+        heroImg:     '../global assets/Images/Square-bucket/2ltr-ghee/container-img.webp',
+        textImg:     '../global assets/Images/Square-bucket/2ltr-ghee/2-ltr-ghee-text-content.svg',
+        SBTopIconImg:     '../global assets/Images/Square-bucket/2ltr-ghee/top-icon.svg',
+        SBBottomIconImg:     '../global assets/Images/Square-bucket/2ltr-ghee/bottom-icon.svg',
+        SBHeightIconImg:     '../global assets/Images/Square-bucket/2ltr-ghee/height-icon.svg',
+        lightboxUrl: '../lightBox/index.html#2-ltr-ghee-square-bucket',
+        shadowColor: '#f3d79c',
+        gradStart:   '#c78f2b',
+        gradEnd:     '#e6b35a'
+    },
     {
         heroImg:     '../global assets/Images/Square-bucket/5ltr-ghee/container-img.webp',
         textImg:     '../global assets/Images/Square-bucket/5ltr-ghee/5ltr-ghee-text-content.svg',
+        SBTopIconImg:     '../global assets/Images/Square-bucket/5ltr-ghee/top-icon.svg',
+        SBBottomIconImg:     '../global assets/Images/Square-bucket/5ltr-ghee/bottom-icon.svg',
+        SBHeightIconImg:     '../global assets/Images/Square-bucket/5ltr-ghee/height-icon.svg',
         lightboxUrl: '../lightBox/index.html#5-ltr-ghee-square-bucket',
         shadowColor: '#C9D0F6',
         gradStart:   '#5559CB',
@@ -1848,6 +1864,10 @@ function sbhUpdateContent(productIdx) {
 
     const heroEl    = document.getElementById('square-bucket-hero-img');
     const textEl    = document.getElementById('square-bucket-text-img');
+    // ✅ Add these inside sbhUpdateContent()
+const SBTopIconEl    = document.getElementById('square-bucket-topIcon-img');
+const SBBottomIconEl = document.getElementById('square-bucket-bottomIcon-img');
+const SBHeightIconEl = document.getElementById('square-bucket-heightIcon-img');
     const linkEl    = document.getElementById('square-bucket-360-link');
     const shadow    = document.getElementById('square-bucket-bg-shadow-path');
     const gradStop1 = document.getElementById('square-bucket-grad-stop-1');
@@ -1859,13 +1879,17 @@ function sbhUpdateContent(productIdx) {
     if (gradStop1) gsap.to(gradStop1, { attr: { 'stop-color': p.gradStart },    duration: 0.6 });
     if (gradStop2) gsap.to(gradStop2, { attr: { 'stop-color': p.gradEnd },      duration: 0.6 });
 
-    gsap.to([heroEl, textEl], {
+    gsap.to([heroEl, textEl, SBTopIconEl, SBBottomIconEl, SBHeightIconEl], {
         opacity: 0, duration: 0.25,
         onComplete: () => {
             heroEl.src = p.heroImg;
             textEl.src = p.textImg;
+            SBTopIconEl.src = p.SBTopIconImg;
+            SBBottomIconEl.src = p.SBBottomIconImg;
+            SBHeightIconEl.src = p.SBHeightIconImg;
+
             if (linkEl) linkEl.href = p.lightboxUrl;
-            gsap.to([heroEl, textEl], { opacity: 1, duration: 0.45, ease: 'power2.out' });
+            gsap.to([heroEl, textEl, SBTopIconEl, SBBottomIconEl, SBHeightIconEl], { opacity: 1, duration: 0.45, ease: 'power2.out' });
         }
     });
 }
@@ -1930,15 +1954,22 @@ function squareBucketIntroAnimation() {
     if (g1) g1.setAttribute('stop-color', p0.gradStart);
     if (g2) g2.setAttribute('stop-color', p0.gradEnd);
 
-    const p      = SB_BUCKET_PRODUCTS[0];
+    const p      = SB_BUCKET_PRODUCTS[0]; 
     const heroEl = document.getElementById('square-bucket-hero-img');
     const textEl = document.getElementById('square-bucket-text-img');
+    const SBTopIconEl = document.getElementById('square-bucket-topIcon-img');
+    const SBBottomIconEl = document.getElementById('square-bucket-bottomIcon-img');
+    const SBHeightIconEl = document.getElementById('square-bucket-heightIcon-img');
     const linkEl = document.getElementById('square-bucket-360-link');
     if (heroEl) heroEl.src = p.heroImg;
     if (textEl) textEl.src = p.textImg;
+    if (SBTopIconEl) SBTopIconEl.src = p.SBTopIconImg;
+    if (SBBottomIconEl) SBBottomIconEl.src = p.SBBottomIconImg;
+    if (SBHeightIconEl) SBHeightIconEl.src = p.SBHeightIconImg;
+
     if (linkEl) linkEl.href = p.lightboxUrl;
 
-    gsap.set([heroEl, textEl], { opacity: 0 });
+    gsap.set([heroEl, textEl, SBTopIconEl, SBBottomIconEl, SBHeightIconEl], { opacity: 0 });
     gsap.set('#square-bucket-icons', { opacity: 0 });
 
     const tl = gsap.timeline({ onComplete: () => sbhStartTimer() });
@@ -1955,7 +1986,10 @@ function squareBucketIntroAnimation() {
             { opacity: 1, x: 0, duration: 0.9, ease: 'power3.out' }, '-=0.6')
       .fromTo('#square-bucket-icons',
             { opacity: 0, y: 20 },
-            { opacity: 1, y: 0, duration: 0.6 }, '-=0.4');
+            { opacity: 1, y: 0, duration: 0.6 }, '-=0.4')
+      .fromTo([SBTopIconEl, SBBottomIconEl, SBHeightIconEl],
+            { opacity: 0, y: 15 },
+            { opacity: 1, y: 0, duration: 0.5, stagger: 0.12, ease: 'power2.out' }, '-=0.3');
 }
 
 (function sbhSetup() {
