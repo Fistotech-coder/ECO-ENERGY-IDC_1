@@ -814,6 +814,7 @@ const SB_PRODUCTS = [
 const SB_SEQ = [
   { id: "SB-16-container-image", enter: "sb-enter-fade",     exit: "sb-exit-fade",    delay: 0   },
   { id: "SB-16-text",            enter: "sb-enter-name",     exit: "sb-exit-name",    delay: 110 },
+  { id: "SB-16-colors-available",       enter: "sb-enter-content", exit: "sb-exit-content", delay: 160 },
   { id: "SB-16-content",         enter: "sb-enter-content",  exit: "sb-exit-content", delay: 210 },
   { id: "SB-16-food-safe",       enter: "sb-enter-foodsafe", exit: "sb-exit-content", delay: 310 },
   { id: "SB-16-top-icon",        enter: "sb-enter-top",      exit: "sb-exit-top",     delay: 400 },
@@ -1305,6 +1306,7 @@ const SBTE_PRODUCTS = [
 const SBTE_SEQ = [
   { id: "SBTE-container-image", enter: "sb-enter-fade",     exit: "sb-exit-fade",    delay: 0   },
   { id: "SBTE-text",            enter: "sb-enter-name",     exit: "sb-exit-name",    delay: 110 },
+  { id: "SBTE-colors-available",       enter: "sb-enter-content", exit: "sb-exit-content", delay: 160 },
   { id: "SBTE-content",         enter: "sb-enter-content",  exit: "sb-exit-content", delay: 210 },
   { id: "SBTE-food-safe",       enter: "sb-enter-foodsafe", exit: "sb-exit-content", delay: 310 },
   { id: "SBTE-top-icon",        enter: "sb-enter-top",      exit: "sb-exit-top",     delay: 400 },

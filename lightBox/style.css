@@ -5,3 +5,15 @@
 }
 
 
+/* For smaller containers like 100ml ice cream */
+#100-ml-ice-cream-round-container model-viewer,
+
+#125-ml-ice-cream-round-container model-viewer {
+    scale: 0.65;
+}
+
+#115-ml-ice-cream-round-container model-viewer{
+  
+    scale: 0.67;
+  
+}

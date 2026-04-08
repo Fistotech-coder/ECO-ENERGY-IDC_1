@@ -1398,7 +1398,6 @@
 
 
 
-
                     <!-- *********************************Rough page Ice Cream Oval page end****************************** -->
 
 
@@ -1472,7 +1471,8 @@
                     <!-- *********************************About us page start****************************** -->
 
                     <div class="page">
-
+                        <img src="../global assets/Images/AboutusPage/background-img.webp" alt="container-img"
+                            class="absolute top-[0%] w-[100%] h-[100%] left-[0%] " />
                         <img src="../global assets/Images/commonThings/right-page-shadow.svg" alt="shadow"
                             class="absolute top-0 right-[-2%] h-[100%] rotate-180 shadow-mobile" />
                         <img src="../global assets/Images/AboutusPage/logo.svg" alt="logo"
@@ -1498,99 +1498,117 @@
 
                     <!-- *********************************About us page end****************************** -->
                     <!-- *********************************Table of Content page start****************************** -->
-                    <div class="page relative">
+      <div class="page relative">
+
                         <img src="../global assets/Images/commonThings/right-page-shadow.svg" alt="shadow"
-                            class="absolute top-0 left-[-2%] h-[100%] " />
+                            class="absolute top-0 left-[-2%] h-[100%] z-2" />
+                            <img src="../global assets/Images/AboutusPage/background-img.webp" alt="container-img"
+                            class="absolute top-[0%] w-[100%] h-[100%] left-[0%] " />
                         <img src="../global assets/Images/TableOfContent/IML-PACKAGING.svg" alt="iml-packaging"
-                            class="absolute top-[5%] left-[5%] w-[40%]" />
+                            class="absolute top-[5%] left-[5%] w-[40%] toc-iml-packaging" />
                         <img src="../global assets/Images/TableOfContent/Product-Range.svg" alt="product-range"
-                            class="absolute top-[11%] left-[5%] w-[25%]" />
-                        <img src="../global assets/Images/TableOfContent/auto-scroll-page.svg" alt="auto-scroll-page"
-                            class="absolute top-[7%] right-[5%] w-[25%]" />
+                            class="absolute top-[11%] left-[5%] w-[25%] toc-product-range" />
+                        <!-- <img src="../global assets/Images/TableOfContent/auto-scroll-page.svg" alt="auto-scroll-page"
+                            class="absolute top-[7%] right-[5%] w-[25%]" /> -->
 
                         <!-- Auto-scroll toggle button -->
-                        <button id="autoScrollBtn"
+                        <!-- <button id="autoScrollBtn"
                             class="absolute top-[5.9%] right-[32%] w-[8%] h-[4%] bg-[#416C32] rounded-full p-1 transition-colors duration-300 focus:outline-none shadow-md no-flip-zone z-[999999]!">
                             <div id="toggleCircle"
                                 class="w-[50%] h-[100%] bg-white rounded-full shadow-md transform transition-transform duration-300 translate-x-4 ">
                             </div>
-                        </button>
+                        </button> -->
 
 
 
-                        <div id="scrollContainer"
-                            class="absolute top-[16%] left-[5%] w-[90%] h-[72%] overflow-y-scroll scroll-smooth no-flip-zone">
+
 
                             <!-- Round Container -->
-                            <div class="image-click-wrapper">
+                            <!-- <div class="image-click-wrapper"> -->
                                 <img src="../global assets/Images/TableOfContent/round-container.svg" data-page="4"
-                                    alt="iml-packaging" class="w-[100%]" />
+                                    alt="iml-packaging" class="absolute top-[20%] left-[10%] w-[80%] tb-link toc-round-container " style="transition:transform 0.4s ease; transform-origin:left center; cursor:pointer;"
+onmouseover="this.style.transform='scale(1.08)'"
+onmouseout="this.style.transform='scale(1)'"  data-audio-path="../audios/IML-round-container.mp3"/>
 
                                 <!-- <div class="svg-container w-[100%]" data-page="4" data-src="../global assets/Images/TableOfContent/round-container.svg"></div> -->
-                                <div class="image-click-zone tb-link" data-page="4"
-                                    data-audio-path="../audios/IML-round-container.mp3"></div>
-                            </div>
+                                <!-- <div class="image-click-zone " data-page="4"
+                                    ></div> -->
+                            <!-- </div> -->
 
                             <!-- Round Bucket -->
-                            <div class="image-click-wrapper">
+                            <!-- <div class="image-click-wrapper"> -->
                                 <img src="../global assets/Images/TableOfContent/round-bucket.svg" data-page="5"
-                                    alt="iml-packaging" class="w-[100%]" />
-                                <div class="image-click-zone tb-link" data-page="5"
-                                    data-audio-path="../audios/IML-round-bucket.mp3"></div>
-                            </div>
+                                    alt="iml-packaging" class="absolute top-[29%] left-[10%] w-[80%] tb-link toc-round-bucket " style="transition:transform 0.4s ease; transform-origin:left center; cursor:pointer;"
+onmouseover="this.style.transform='scale(1.08)'"
+onmouseout="this.style.transform='scale(1)'"  data-audio-path="../audios/IML-round-bucket.mp3" />
+                                <!-- <div class="image-click-zone tb-link" 
+                                    ></div> -->
+                            <!-- </div> -->
 
                             <!-- Sweet Box -->
-                            <div class="image-click-wrapper">
+                            <!-- <div class="image-click-wrapper"> -->
                                 <img src="../global assets/Images/TableOfContent/sweet-box.svg" data-page="6"
-                                    alt="iml-packaging" class="w-[100%]" />
-                                <div class="image-click-zone tb-link" data-page="6"
-                                    data-audio-path="../audios/IML-sweetbox.mp3"></div>
-                            </div>
+                                    alt="iml-packaging" class="absolute top-[38%] left-[10%] w-[80%] tb-link toc-sweet-box " style="transition:transform 0.4s ease; transform-origin:left center; cursor:pointer;"
+onmouseover="this.style.transform='scale(1.08)'"
+onmouseout="this.style.transform='scale(1)'"  data-audio-path="../audios/IML-sweetbox.mp3" />
+                                <!-- <div class="image-click-zone tb-link" data-page="6"
+                                    ></div> -->
+                            <!-- </div> -->
 
                             <!-- Biriyani Rectangular -->
-                            <div class="image-click-wrapper">
-                                <img src="../global assets/Images/TableOfContent/biriyani-rectangular.svg" data-page="7"
-                                    alt="iml-packaging" class="w-[100%]" />
-                                <div class="image-click-zone tb-link" data-page="8"
-                                    data-audio-path="../audios/IML-biriyani-rectangular.mp3"></div>
-                            </div>
+                            <!-- <div class="image-click-wrapper"> -->
+                                <img src="../global assets/Images/TableOfContent/biriyani-rectangular.svg" data-page="8"
+                                    alt="iml-packaging" class="absolute top-[47%] left-[10%] w-[80%] tb-link toc-biriyani-rect " style="transition:transform 0.4s ease; transform-origin:left center; cursor:pointer;"
+onmouseover="this.style.transform='scale(1.08)'"
+onmouseout="this.style.transform='scale(1)'"  data-audio-path="../audios/IML-biriyani-rectangular.mp3"/>
+                                <!-- <div class="image-click-zone tb-link" data-page="8" 
+                                    ></div> -->
+                            <!-- </div> -->
 
                             <!-- Square Bucket -->
-                            <div class="image-click-wrapper">
-                                <img src="../global assets/Images/TableOfContent/square-bucket.svg" data-page="8"
-                                    alt="iml-packaging" class="w-[100%]" />
-                                <div class="image-click-zone tb-link" data-page="10"
-                                    data-audio-path="../audios/IML-square-bucket.mp3"></div>
-                            </div>
+                            <!-- <div class="image-click-wrapper"> -->
+                                <img src="../global assets/Images/TableOfContent/square-bucket.svg" data-page="10"
+                                    alt="iml-packaging" class="absolute top-[56%] left-[10%] w-[80%] tb-link toc-square-bucket " style="transition:transform 0.4s ease; transform-origin:left center; cursor:pointer;"
+onmouseover="this.style.transform='scale(1.08)'"
+onmouseout="this.style.transform='scale(1)'"   data-audio-path="../audios/IML-square-bucket.mp3"/>
+                                <!-- <div class="image-click-zone tb-link" data-page="10"
+                                    ></div> -->
+                            <!-- </div> -->
 
                             <!-- Icecream Oval -->
-                            <div class="image-click-wrapper">
-                                <img src="../global assets/Images/TableOfContent/icecream-oval.svg" data-page="9"
-                                    alt="iml-packaging" class="w-[100%]" />
-                                <div class="image-click-zone tb-link" data-page="11"
-                                    data-audio-path="../audios/IML-ice-cream-oval.mp3"></div>
-                            </div>
+                            <!-- <div class="image-click-wrapper"> -->
+                                <img src="../global assets/Images/TableOfContent/icecream-oval.svg" data-page="11"
+                                    alt="iml-packaging" class="absolute top-[65%] left-[10%] w-[80%] tb-link toc-icecream-oval " style="transition:transform 0.4s ease; transform-origin:left center; cursor:pointer;"
+onmouseover="this.style.transform='scale(1.08)'"
+onmouseout="this.style.transform='scale(1)'"  data-audio-path="../audios/IML-ice-cream-oval.mp3" />
+                                <!-- <div class="image-click-zone tb-link" data-page="11"
+                                    ></div> -->
+                            <!-- </div> -->
 
                             <!-- Icecream Round -->
-                            <div class="image-click-wrapper">
-                                <img src="../global assets/Images/TableOfContent/icecream-round.svg" data-page="10"
-                                    alt="iml-packaging" class="w-[100%]" />
-                                <div class="image-click-zone tb-link" data-page="12"
-                                    data-audio-path="../audios/IML-ice-cream-round.mp3"></div>
-                            </div>
+                            <!-- <div class="image-click-wrapper"> -->
+                                <img src="../global assets/Images/TableOfContent/icecream-round.svg" data-page="12"
+                                    alt="iml-packaging" class="absolute top-[74%] left-[10%] w-[80%] tb-link toc-icecream-round " style="transition:transform 0.4s ease; transform-origin:left center; cursor:pointer;"
+onmouseover="this.style.transform='scale(1.08)'"
+onmouseout="this.style.transform='scale(1)'"  data-audio-path="../audios/IML-ice-cream-round.mp3"/>
+                                <!-- <div class="image-click-zone tb-link" data-page="12"
+                                    ></div> -->
+                            <!-- </div> -->
 
                             <!-- Beverage Cup -->
-                            <div class="image-click-wrapper">
-                                <img src="../global assets/Images/TableOfContent/beverage-cup.svg" data-page="11"
-                                    alt="iml-packaging" class="w-[100%]" />
-                                <div class="image-click-zone tb-link" data-page="13"
-                                    data-audio-path="../audios/IML-beverage-cup.mp3"></div>
-                            </div>
+                            <!-- <div class="image-click-wrapper"> -->
+                                <img src="../global assets/Images/TableOfContent/beverage-cup.svg" data-page="13"
+                                    alt="iml-packaging" class="absolute top-[83%] left-[10%] w-[80%] tb-link toc-beverage-cup " style="transition:transform 0.4s ease; transform-origin:left center; cursor:pointer;"
+onmouseover="this.style.transform='scale(1.08)'"
+onmouseout="this.style.transform='scale(1)'"  data-audio-path="../audios/IML-beverage-cup.mp3" />
+                                <!-- <div class="image-click-zone tb-link" data-page="13"
+                                    ></div> -->
+                            <!-- </div> -->
 
-                        </div>
+                        
 
                         <img src="../global assets/Images/TableOfContent/bottom-food-img.webp" alt="foot-img"
-                            class="absolute bottom-[0%] right-[0%] w-[35%]" />
+                            class="absolute top-[0%] right-[0%] w-[35%] toc-bottom-food" />
 
                         <span class="page-corner-no page-corner-right">3</span>
                     </div>
@@ -1651,7 +1669,7 @@
                             <img id="round-bottom-bg-1" src="" alt="bottom-img" class="bottom-bg-img-base" />
                             <img id="round-bottom-bg-2" src="" alt="bottom-img" class="bottom-bg-img-overlay" />
                         </div>
-                        <!-- <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                        <!-- <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                             class="absolute bottom-[35%] left-[10%] w-[8%] " />
 
                         <img id="round-current-container" src="" alt="container"
@@ -1660,8 +1678,8 @@
                         <a id="round-container-360-link" href="../lightBox/index.html#03-250-ml-round-container"
                             target="_blank" class="no-flip-zone" style="z-index:20; ">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
-                                class="absolute bottom-[35%] left-[36%] w-[8%] cursor-pointer"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
+                                class="absolute bottom-[32%] left-[36%] w-[10%] cursor-pointer"
                                 style="pointer-events:auto;" />
 
                             <img id="round-current-container" src="" alt="container"
@@ -1670,7 +1688,7 @@
 
                         </a>
                         <img id="round-current-container-name-text" src="" alt="name"
-                            class="absolute bottom-[8%] left-[2%] w-[40%]" />
+                            class="absolute bottom-[7.5%] left-[7%] w-[32%]" />
                         <img id="round-current-container-text" src="" alt="text"
                             class="absolute bottom-[13%] right-[10%] w-[40%]" />
 
@@ -1687,6 +1705,9 @@
                             class="absolute top-[2.5%] w-[12%] left-[5%] z-3 " />
                         <img src="../global assets/Images/Round-bucket/IML-Round-bucket.svg" alt="IML-Round-bucket"
                             class="absolute top-[5%] w-[50%] left-[30%] z-3" />
+
+                            <img src="../global assets/Images/Round-bucket/background-img.webp" alt="background-img"
+                            class="absolute top-[0%] w-[100%] h-[100%] left-[0%] z-2" />
 
                         <img src="../global assets/Images/commonThings/right-page-shadow.svg" alt="shadow"
                             class="absolute top-0 left-[-1%] h-[100%] z-19" />
@@ -1706,9 +1727,9 @@
                             <img src="../global assets/Images/Round-bucket/1180ml/1180ml-container-img.webp"
                                 class="absolute top-[22%] w-[24%] left-[38.5%]  rb-float z-3" />
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sb-360-icon"
-                                style="position: absolute; top: 13%; left: 47%; width: 9%; cursor: pointer; z-index: 4;" />
+                                style="position: absolute; top: 13%; left: 47%; width: 11%; cursor: pointer; z-index: 4;" />
                         </a>
 
 
@@ -1753,7 +1774,7 @@
                             <img src="../global assets/Images/Round-bucket/2000ml/2000ml-container-img.webp"
                                 class="absolute top-[63%] w-[27%] left-[36.5%]  rb-float z-3" />
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sb-360-icon"
                                 style="position: absolute; top: 56%; left: 46%; width: 9%; cursor: pointer; z-index: 4;" />
                         </a>
@@ -1789,7 +1810,7 @@
                     <div class="page">
 
                         <img src="../global assets/Images/Sweetbox/background-img.webp" alt="background-img"
-                            class="absolute top-[0%] w-[100%] left-[0%] h-[100%]" />
+                            class="absolute top-[0%] w-[100%] left-[0%] h-[100%] " />
 
                         <img src="../global assets/Images/commonThings/right-page-shadow.svg" alt="shadow"
                             class="absolute top-0 right-[-1%] h-[100%] rotate-180 z-11 shadow-mobile" />
@@ -1848,7 +1869,7 @@
                             class="no-flip-zone absolute top-[30%] left-[7%] w-[45%]" style="display: block;"
                             target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sb-360-icon"
                                 style="position: absolute; top: 3%; right: -7%; width: 15%; cursor: pointer; z-index: 4;" />
 
@@ -1861,11 +1882,14 @@
                         <img id="SB-16-text" src="../global assets/Images/Sweetbox/SB-16-250-G/SB-16-250-G.svg"
                             alt="Product name" class="absolute top-[18%] left-[5%] w-[60%]" />
 
+                        <img id="SB-16-colors-available" src="../global assets/Images/Sweetbox/general-colors-available-text.svg"
+                            alt="Content specs" class="absolute top-[53%] left-[5%] w-[55%]" />
+
                         <img id="SB-16-content" src="../global assets/Images/Sweetbox/SB-16-250-G/content.svg"
-                            alt="Content specs" class="absolute top-[55%] left-[6%] w-[48%]" />
+                            alt="Content specs" class="absolute top-[57%] left-[6%] w-[48%]" />
 
                         <img id="SB-16-food-safe" src="../global assets/Images/Sweetbox/food-safe.svg" alt="Food safe"
-                            class="absolute top-[63%] left-[5%] w-[50%]" />
+                            class="absolute top-[64%] left-[5%] w-[55%]" />
 
                         <img id="SB-16-top-icon" src="../global assets/Images/Sweetbox/SB-16-250-G/top-icon.svg"
                             alt="Top dimension" class="absolute top-[71%] left-[5%] w-[25%]" />
@@ -1959,7 +1983,7 @@
                             class="no-flip-zone absolute top-[30%] left-[7%] w-[45%]" style="display: block;"
                             target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sbte-360-icon"
                                 style="position: absolute; top: 3%; right: -7%; width: 15%; cursor: pointer; z-index: 4;" />
 
@@ -1972,11 +1996,14 @@
                         <img id="SBTE-text" src="../global assets/Images/Sweetbox-TE/R-250-TE-JUMBO/R-250-TE-JUMBO.svg"
                             alt="Product name" class="absolute top-[18%] left-[5%] w-[60%]" />
 
+                             <img id="SBTE-colors-available" src="../global assets/Images/Sweetbox-TE/general-colors-available-text.svg"
+                            alt="Content specs" class="absolute top-[53%] left-[5%] w-[55%]" />
+
                         <img id="SBTE-content" src="../global assets/Images/Sweetbox-TE/R-250-TE-JUMBO/content.svg"
-                            alt="Content specs" class="absolute top-[55%] left-[6%] w-[48%]" />
+                            alt="Content specs" class="absolute top-[57%] left-[6%] w-[48%]" />
 
                         <img id="SBTE-food-safe" src="../global assets/Images/Sweetbox-TE/food-safe.svg" alt="Food safe"
-                            class="absolute top-[63%] left-[5%] w-[50%]" />
+                            class="absolute top-[64%] left-[5%] w-[55%]" />
 
                         <img id="SBTE-top-icon" src="../global assets/Images/Sweetbox-TE/R-250-TE-JUMBO/top-icon.svg"
                             alt="Top dimension" class="absolute top-[71%] left-[5%] w-[25%]" />
@@ -2005,6 +2032,10 @@
                     <!-- *********************************Biriyani Rectangle page 1 Start****************************** -->
 
                     <div class="page">
+
+                        <img src="../global assets/Images/Biriyani-Rectangle/background-img.webp" alt="background-img"
+                            class="absolute top-[0%] w-[100%] h-[100%] left-[0%]  " />
+
                         <img src="../global assets/Images/Biriyani-Rectangle/logo.svg" alt="logo"
                             class="absolute top-[2.5%] w-[12%] left-[5%] z-3 " />
 
@@ -2027,7 +2058,7 @@
 
                         <a href="../lightBox/index.html#BT-14-500-ML" target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sbte-360-icon"
                                 style="position: absolute; top: 23%; left: 30%; width: 7%; cursor: pointer; z-index: 4;" />
 
@@ -2043,7 +2074,7 @@
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-500ml/BT-14-500-ml-text.svg"
                             alt="BT-14-500-ml-text" class="absolute top-[25%] left-[40%] w-[25%] biriyani-500-text" />
                             <img src="../global assets/Images/Biriyani-Rectangle/iml-moq.svg"
-                            alt="BT-14-500-ml-text" class="absolute top-[26%] left-[66%] w-[25%] biriyani-500-text" />
+                            alt="BT-14-500-ml-text" class="absolute top-[25.5%] left-[66%] w-[25%] biriyani-500-text" />
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-500ml/content.svg" alt="content"
                             class="absolute top-[29%] left-[40%] w-[45%] biriyani-500-content" />
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-500ml/measurement-icons.svg"
@@ -2064,7 +2095,7 @@
 
                         <a href="../lightBox/index.html#BT-14-650-ML" target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sbte-360-icon"
                                 style="position: absolute; top: 69%; right: 30%; width: 7%; cursor: pointer; z-index: 4;" />
 
@@ -2076,7 +2107,7 @@
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-650ml/BT-14-650-ml-text.svg"
                             alt="BT-14-650-ml-text" class="absolute top-[70%] left-[10%] w-[25%] biriyani-650-text" />
                             <img src="../global assets/Images/Biriyani-Rectangle/iml-moq.svg"
-                            alt="BT-14-650-ml-text" class="absolute top-[71%] left-[36%] w-[25%] biriyani-650-text" />
+                            alt="BT-14-650-ml-text" class="absolute top-[70.5%] left-[36%] w-[25%] biriyani-650-text" />
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-650ml/content.svg" alt="content"
                             class="absolute top-[74.5%] left-[10%] w-[45%] biriyani-650-content" />
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-650ml/measurement-icons.svg"
@@ -2089,6 +2120,9 @@
                     <!-- *********************************Biriyani Rectangle page 1 end****************************** -->
                     <!-- *********************************Biriyani Rectangle page 2 Start****************************** -->
                     <div class="page">
+                        <img src="../global assets/Images/Biriyani-Rectangle/background-img.webp" alt="background-img"
+                            class="absolute top-[0%] w-[100%] h-[100%] left-[0%]  " />
+
                         <img src="../global assets/Images/Biriyani-Rectangle/logo.svg" alt="logo"
                             class="absolute top-[2.5%] w-[12%] left-[5%] z-3" />
                         <img src="../global assets/Images/commonThings/right-page-shadow.svg" alt="shadow"
@@ -2110,7 +2144,7 @@
 
                         <a href="../lightBox/index.html#BT-14-750-ML" target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sbte-360-icon"
                                 style="position: absolute; top: 23%; right: 30%; width: 7%; cursor: pointer; z-index: 4;" />
 
@@ -2124,7 +2158,7 @@
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-750ml/BT-14-750-ml-text.svg"
                             alt="BT-14-750-ml-text" class="absolute top-[25%] left-[10%] w-[25%] biriyani-750-text" />
                             <img src="../global assets/Images/Biriyani-Rectangle/iml-moq.svg"
-                            alt="BT-14-750-ml-text" class="absolute top-[26%] left-[36%] w-[25%] biriyani-750-text" />
+                            alt="BT-14-750-ml-text" class="absolute top-[25.5%] left-[36%] w-[25%] biriyani-750-text" />
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-750ml/content.svg" alt="content"
                             class="absolute top-[29%] left-[10%] w-[45%] biriyani-750-content" />
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-750ml/measurement-icons.svg"
@@ -2145,7 +2179,7 @@
 
                         <a href="../lightBox/index.html#BT-14-1000-ML" target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sbte-360-icon"
                                 style="position: absolute; top: 69%; left: 30%; width: 7%; cursor: pointer; z-index: 4;" />
 
@@ -2159,7 +2193,7 @@
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-1000ml/BT-14-1000-ml-text.svg"
                             alt="BT-14-1000-ml-text" class="absolute top-[70%] left-[40%] w-[25%] biriyani-1000-text" />
                         <img src="../global assets/Images/Biriyani-Rectangle/iml-moq.svg"
-                            alt="BT-14-1000-ml-text" class="absolute top-[71%] left-[66%] w-[25%] biriyani-1000-text" />
+                            alt="BT-14-1000-ml-text" class="absolute top-[70.5%] left-[66%] w-[25%] biriyani-1000-text" />
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-1000ml/content.svg" alt="content"
                             class="absolute top-[74.5%] left-[40%] w-[45%] biriyani-1000-content"/>
                         <img src="../global assets/Images/Biriyani-Rectangle/BT-14-1000ml/measurement-icons.svg"
@@ -2229,7 +2263,7 @@
 
                         <img id="square-bucket-text-img"
                             src="../global assets/Images/Square-bucket/1500-ml/1500-ml-text-content.svg"
-                            alt="container image" class="absolute top-[17.5%] w-[40%] left-[0%] z-3" />
+                            alt="container image" class="absolute top-[17.5%] w-[44%] left-[0%] z-3" />
 
                             <img id="square-bucket-topIcon-img"
                             src="../global assets/Images/Square-bucket/1500-ml/top-icon.svg"
@@ -2252,7 +2286,7 @@
                             target="_blank" class="no-flip-zone"
                             style="position:absolute; top:16%; right:5%; width:60%; z-index:3;">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 style="position:absolute; top:5%; left:81%; width:13%; cursor:pointer; z-index:4;" />
 
                             <img id="square-bucket-hero-img"
@@ -2262,7 +2296,7 @@
                         </a>
 
 
-                        <div class="arrow absolute top-[68%] left-[48%] z-[111] rotate-[90deg] no-flip-zone">
+                        <div class="arrow absolute top-[70%] left-[48%] z-[111] rotate-[90deg] no-flip-zone">
                             <span>›</span>
                             <span>›</span>
                         </div>
@@ -2299,6 +2333,9 @@
 
 
                     <div class="page">
+
+                        <img src="../global assets/Images/Ice-cream-oval/background-img.png" alt="background-img"
+                            class="absolute top-[0%] w-[100%] h-[100%] left-[0%]  " />
                         <img src="../global assets/Images/Ice-cream-oval/iml-ice-cream-oval-text.svg"
                             alt="ice-cream-oval" class="absolute w-[60%] top-[-2%] left-[25%] z-[11]"/>
                         <img src="../global assets/Images/commonThings/right-page-shadow.svg" alt="shadow"
@@ -2329,7 +2366,7 @@
 
                         <a href="../lightBox/index.html#100-ml-Oval" target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sbte-360-icon"
                                 style="position: absolute; top: 29%; left:23%; width: 7%; cursor: pointer; z-index: 4;" />
 
@@ -2360,7 +2397,7 @@
 
                         <a href="../lightBox/index.html#100-ml-Oval(with Spoon)" target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sbte-360-icon"
                                 style="position: absolute; top: 29%; left: 66%; width: 7%; cursor: pointer; z-index: 4;" />
 
@@ -2391,7 +2428,7 @@
 
                         <a href="../lightBox/index.html#125-ml-Oval" target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sbte-360-icon"
                                 style="position: absolute; top: 75%; left: 21%; width: 7%; cursor: pointer; z-index: 4;" />
 
@@ -2421,9 +2458,9 @@
                         <img src="../global assets/Images/Ice-cream-oval/520ml-oval/bg-img.webp" alt="Background"
                             class="absolute w-[13%] top-[60%] left-[52%] oval-up-img" />
 
-                        <a href="../lightBox/index.html#500-ml-Oval" target="_blank">
+                        <a href="../lightBox/index.html#520-ml-Oval" target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sbte-360-icon"
                                 style="position: absolute; top: 75%; left: 67%; width: 7%; cursor: pointer; z-index: 4;" />
                             <img src="../global assets/Images/Ice-cream-oval/520ml-oval/520ml-container.webp"
@@ -2466,7 +2503,7 @@
                                 href="../lightBox/index.html#100-ml-ice-cream-round-container" target="_blank"
                                 class="no-flip-zone">
 
-                                <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                                <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                     style="position:absolute; top:21%; left:64%; width:8%; cursor:pointer; z-index:4;" />
 
                                 <img id="ice-cream-round-current-container-img"
@@ -2487,7 +2524,7 @@
                             class="icr-reveal-el absolute top-[59%] left-[22.5%] w-[25%] " />
                         <img id="ice-cream-round-iml-moq"
                             src="../global assets/Images/Ice-cream-round/100ml/iml-moq.svg" alt="background-img"
-                            class="icr-reveal-el absolute top-[62%] left-[50%] w-[30%] " />
+                            class="icr-reveal-el absolute top-[61%] left-[50%] w-[35%] " />
                         <img id="ice-cream-round-product-code"
                             src="../global assets/Images/Ice-cream-round/100ml/product-code.svg" alt="background-img"
                             class=" icr-reveal-el absolute top-[68%] left-[30%] w-[40%] " />
@@ -2509,7 +2546,7 @@
 
 
                         <button id="ice-cream-round-previous-btn" class="no-flip-zone">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="gray" stroke-width="2.5"
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2.5"
                                 stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="15 18 9 12 15 6" />
                             </svg>
@@ -2517,7 +2554,7 @@
 
                         <button id="ice-cream-round-next-btn" class="no-flip-zone">
                             <svg id="ice-cream-round-next-arrow" width="18" height="18" viewBox="0 0 24 24" fill="none"
-                                stroke="gray" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                stroke="black" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                                 <polyline points="9 18 15 12 9 6" />
                             </svg>
                         </button>
@@ -2559,7 +2596,7 @@
 
                         <a href="../lightBox/index.html#200-ml-beverage-cup" target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sbte-360-icon"
                                 style="position: absolute; top: 39%; left: 87%; width: 7%; cursor: pointer; z-index: 4;" />
 
@@ -2591,7 +2628,7 @@
 
                         <a href="../lightBox/index.html#300-ml-beverage-cup" target="_blank">
 
-                            <img src="../global assets/Images/commonThings/360-icon-black.webp" alt="360-icon"
+                            <img src="../global assets/Images/commonThings/360-animated-icon-Black.gif" alt="360-icon"
                                 class="sbte-360-icon"
                                 style="position: absolute; top: 71%; left: 31%; width: 7%; cursor: pointer; z-index: 4;" />
 
@@ -2621,11 +2658,14 @@
                     <div class="page contact-us">
                         <img src="../global assets/Images/ContactUs/left-img.webp"
                             class="absolute top-0 left-0 h-[100%]" id="contact-us-left-img" />
+                        
                         <img src="../global assets/Images/commonThings/right-page-shadow.svg" alt="shadow"
                             class="absolute top-0 right-[-1%] h-[100%] rotate-180 z-111 shadow-mobile" />
+                            
                         <img src="../global assets/Images/ContactUs/food-img.webp"
                             class="absolute top-0 right-0 h-[100%]" id="contact-us-food-img" />
-
+                        <img src="../global assets/Images/ContactUs/background-watermark-logo.svg"
+                            class="absolute top-0 left-0 h-[100%]" id="contact-us-left-img" />
                         <img src="../global assets/Images/ContactUs/logo.svg"
                             class="absolute top-[3%] w-[20%] left-[40%]" id="contact-us-logo" />
                         <img src="../global assets/Images/ContactUs/lets-talk.svg"
@@ -3088,7 +3128,12 @@
                 Page2UpAnimation();
                 Page2DownAnimation();
                 page2Animation();
+                 TableOfContentAnimation();
             }
+
+            if (page === 3) {
+    TableOfContentAnimation();  // ← Also trigger when landing directly on page 3
+}
 
             // ============== Page 4-5 - Round Containers ==============
             if (page === 4 || page === 5) {
@@ -3183,7 +3228,7 @@
 
         function resetPageImages() {
             // const allAnimatedImages = document.querySelectorAll("[data-image-animation], [data-3d-image-animation]");
-            const allAnimatedImages = document.querySelectorAll(".beverage-up-img, .beverage-left-img, .beverage-right-img, .beverage-popup-1, .beverage-popup-2, .beverage-popup-3, .up-img, .down-img, .right-img, .left-img,  .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-up-2, .page-2-down, .popup_images2, .oval-popup-1, .oval-popup-2, .oval-popup-3, .oval-popup-4, .oval-popup-5, .oval-popup-6, .oval-popup-7, .oval-popup-8,  .oval-popup-9, .oval-popup-10, .oval-popup-11, .oval-popup-12,  .oval-down-img, .oval-up-img, .oval-rigth-img, .oval-left-img, .right-line-img, .left-line-img, .biriyani-500-popup-1, .biriyani-500-popup-2, .biriyani-500-popup-3, .biriyani-650-popup-1, .biriyani-650-popup-2, .biriyani-650-popup-3, .biriyani-500-container-img, .biriyani-650-container-img, .biriyani-500-text, .biriyani-500-content, .biriyani-500-measurement, .biriyani-650-text, .biriyani-650-content, .biriyani-650-measurement, .biriyani-750-popup-1, .biriyani-750-popup-2, .biriyani-750-popup-3, .biriyani-1000-popup-1, .biriyani-1000-popup-2, .biriyani-1000-popup-3, .biriyani-750-container-img, .biriyani-1000-container-img, .biriyani-750-text, .biriyani-750-content, .biriyani-750-measurement, .biriyani-1000-text, .biriyani-1000-content, .biriyani-1000-measurement, #contact-us-logo, #contact-us-lets-talk, #contact-us-left-img, #contact-us-food-img, #contact-us-phone-icon, #contact-us-call-us, #contact-us-number-1, #contact-us-number-2, #contact-us-number-3, #contact-us-location-icon, #contact-us-visit-us, #contact-us-location, #contact-us-email-icon, #contact-us-email-us, #contact-us-email-link, #contact-us-consultation, #contact-us-qr-code, #contact-us-explore, #contact-us-website ");
+            const allAnimatedImages = document.querySelectorAll(".beverage-up-img, .beverage-left-img, .beverage-right-img, .beverage-popup-1, .beverage-popup-2, .beverage-popup-3, .up-img, .down-img, .right-img, .left-img,  .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-up-2, .page-2-down, .popup_images2, .oval-popup-1, .oval-popup-2, .oval-popup-3, .oval-popup-4, .oval-popup-5, .oval-popup-6, .oval-popup-7, .oval-popup-8,  .oval-popup-9, .oval-popup-10, .oval-popup-11, .oval-popup-12,  .oval-down-img, .oval-up-img, .oval-rigth-img, .oval-left-img, .right-line-img, .left-line-img, .biriyani-500-popup-1, .biriyani-500-popup-2, .biriyani-500-popup-3, .biriyani-650-popup-1, .biriyani-650-popup-2, .biriyani-650-popup-3, .biriyani-500-container-img, .biriyani-650-container-img, .biriyani-500-text, .biriyani-500-content, .biriyani-500-measurement, .biriyani-650-text, .biriyani-650-content, .biriyani-650-measurement, .biriyani-750-popup-1, .biriyani-750-popup-2, .biriyani-750-popup-3, .biriyani-1000-popup-1, .biriyani-1000-popup-2, .biriyani-1000-popup-3, .biriyani-750-container-img, .biriyani-1000-container-img, .biriyani-750-text, .biriyani-750-content, .biriyani-750-measurement, .biriyani-1000-text, .biriyani-1000-content, .biriyani-1000-measurement, #contact-us-logo, #contact-us-lets-talk, #contact-us-left-img, #contact-us-food-img, #contact-us-phone-icon, #contact-us-call-us, #contact-us-number-1, #contact-us-number-2, #contact-us-number-3, #contact-us-location-icon, #contact-us-visit-us, #contact-us-location, #contact-us-email-icon, #contact-us-email-us, #contact-us-email-link, #contact-us-consultation, #contact-us-qr-code, #contact-us-explore, #contact-us-website, .toc-iml-packaging, .toc-product-range, .toc-auto-scroll, .toc-round-container, .toc-round-bucket, .toc-sweet-box, .toc-biriyani-rect, .toc-square-bucket, .toc-icecream-oval, .toc-icecream-round, .toc-beverage-cup, .toc-bottom-food ");
             allAnimatedImages.forEach((img) => {
                 gsap.set(img, {
                     opacity: 0,
@@ -3192,7 +3237,7 @@
                     scale: 1
                 });
             });
-            gsap.set('.beverage-up-img, .beverage-left-img, .beverage-right-img, .beverage-popup-1, .beverage-popup-2, .beverage-popup-3, .up-img, .down-img, .right-img, .left-img, .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-up-2, .page-2-down, .popup_images2, .oval-popup-1, .oval-popup-2, .oval-popup-3, .oval-popup-4, .oval-popup-5, .oval-popup-6, .oval-popup-7, .oval-popup-8,  .oval-popup-9, .oval-popup-10, .oval-popup-11, .oval-popup-12,  .oval-down-img, .oval-up-img, .oval-rigth-img, .oval-left-img, .right-line-img, .left-line-img .biriyani-500-popup-1, .biriyani-500-popup-2, .biriyani-500-popup-3, .biriyani-650-popup-1, .biriyani-650-popup-2, .biriyani-650-popup-3, .biriyani-500-container-img, .biriyani-650-container-img, .biriyani-500-text, .biriyani-500-content, .biriyani-500-measurement, .biriyani-650-text, .biriyani-650-content, .biriyani-650-measurement, .biriyani-750-popup-1, .biriyani-750-popup-2, .biriyani-750-popup-3, .biriyani-1000-popup-1, .biriyani-1000-popup-2, .biriyani-1000-popup-3, .biriyani-750-container-img, .biriyani-1000-container-img, .biriyani-750-text, .biriyani-750-content, .biriyani-750-measurement, .biriyani-1000-text, .biriyani-1000-content, .biriyani-1000-measurement, #contact-us-logo, #contact-us-lets-talk, #contact-us-left-img, #contact-us-food-img, #contact-us-phone-icon, #contact-us-call-us, #contact-us-number-1, #contact-us-number-2, #contact-us-number-3, #contact-us-location-icon, #contact-us-visit-us, #contact-us-location, #contact-us-email-icon, #contact-us-email-us, #contact-us-email-link, #contact-us-consultation, #contact-us-qr-code, #contact-us-explore, #contact-us-website  ', { opacity: 0 });
+            gsap.set('.beverage-up-img, .beverage-left-img, .beverage-right-img, .beverage-popup-1, .beverage-popup-2, .beverage-popup-3, .up-img, .down-img, .right-img, .left-img, .page-1-left, .page-1-right, .page-1-up, .page-1-down, .page-2-left, .page-2-right, .page-2-up, .page-2-up-2, .page-2-down, .popup_images2, .oval-popup-1, .oval-popup-2, .oval-popup-3, .oval-popup-4, .oval-popup-5, .oval-popup-6, .oval-popup-7, .oval-popup-8,  .oval-popup-9, .oval-popup-10, .oval-popup-11, .oval-popup-12,  .oval-down-img, .oval-up-img, .oval-rigth-img, .oval-left-img, .right-line-img, .left-line-img .biriyani-500-popup-1, .biriyani-500-popup-2, .biriyani-500-popup-3, .biriyani-650-popup-1, .biriyani-650-popup-2, .biriyani-650-popup-3, .biriyani-500-container-img, .biriyani-650-container-img, .biriyani-500-text, .biriyani-500-content, .biriyani-500-measurement, .biriyani-650-text, .biriyani-650-content, .biriyani-650-measurement, .biriyani-750-popup-1, .biriyani-750-popup-2, .biriyani-750-popup-3, .biriyani-1000-popup-1, .biriyani-1000-popup-2, .biriyani-1000-popup-3, .biriyani-750-container-img, .biriyani-1000-container-img, .biriyani-750-text, .biriyani-750-content, .biriyani-750-measurement, .biriyani-1000-text, .biriyani-1000-content, .biriyani-1000-measurement, #contact-us-logo, #contact-us-lets-talk, #contact-us-left-img, #contact-us-food-img, #contact-us-phone-icon, #contact-us-call-us, #contact-us-number-1, #contact-us-number-2, #contact-us-number-3, #contact-us-location-icon, #contact-us-visit-us, #contact-us-location, #contact-us-email-icon, #contact-us-email-us, #contact-us-email-link, #contact-us-consultation, #contact-us-qr-code, #contact-us-explore, #contact-us-website, .toc-iml-packaging, .toc-product-range, .toc-auto-scroll, .toc-round-container, .toc-round-bucket, .toc-sweet-box, .toc-biriyani-rect, .toc-square-bucket, .toc-icecream-oval, .toc-icecream-round, .toc-beverage-cup, .toc-bottom-food  ', { opacity: 0 });
         }
 
         function Page2LeftAnimation() {
@@ -3956,6 +4001,85 @@
             );
         }
         // Biriyani Rectangle page 2 Animation code end 
+
+
+
+// ================table of content animation code start ===============
+
+
+
+function TableOfContentAnimation() {
+    // ===== RESET =====
+    const tocElements = [
+        '.toc-iml-packaging',
+        '.toc-product-range',
+        '.toc-auto-scroll',
+        '.toc-round-container',
+        '.toc-round-bucket',
+        '.toc-sweet-box',
+        '.toc-biriyani-rect',
+        '.toc-square-bucket',
+        '.toc-icecream-oval',
+        '.toc-icecream-round',
+        '.toc-beverage-cup',
+        '.toc-bottom-food'
+    ];
+
+    gsap.set(tocElements, { opacity: 0, x: 0, y: 0 });
+
+    // ===== ANIMATIONS =====
+
+    // Header texts drop from top
+    gsap.fromTo('.toc-iml-packaging',
+        { opacity: 0, y: -50 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.1 }
+    );
+
+    gsap.fromTo('.toc-product-range',
+        { opacity: 0, y: -30 },
+        { opacity: 1, y: 0, duration: 0.7, ease: "power3.out", delay: 0.3 }
+    );
+
+    gsap.fromTo('.toc-auto-scroll',
+        { opacity: 0, x: 50 },
+        { opacity: 1, x: 0, duration: 0.7, ease: "power3.out", delay: 0.4 }
+    );
+
+    // Bottom food image slides from right
+    gsap.fromTo('.toc-bottom-food',
+        { opacity: 0, x: 80 },
+        { opacity: 1, x: 0, duration: 0.8, ease: "power3.out", delay: 0.3 }
+    );
+
+    // List items reveal one by one from left
+    const listItems = [
+        '.toc-round-container',
+        '.toc-round-bucket',
+        '.toc-sweet-box',
+        '.toc-biriyani-rect',
+        '.toc-square-bucket',
+        '.toc-icecream-oval',
+        '.toc-icecream-round',
+        '.toc-beverage-cup',
+    ];
+
+    listItems.forEach((className, index) => {
+        gsap.fromTo(className,
+            { opacity: 0, x: -60 },
+            {
+                opacity: 1,
+                x: 0,
+                duration: 0.5,
+                delay: 0.5 + (index * 0.12),
+                ease: "power2.out"
+            }
+        );
+    });
+}
+// ================table of content animation code end ===============
+
+
+
     </script>
 
 
@@ -4512,215 +4636,215 @@
         });
     </script>
     <script>
-        const autoScrollBtn = document.getElementById('autoScrollBtn');
-        const toggleCircle = document.getElementById('toggleCircle');
-        const scrollContainer = document.getElementById('scrollContainer');
+        // const autoScrollBtn = document.getElementById('autoScrollBtn');
+        // const toggleCircle = document.getElementById('toggleCircle');
+        // const scrollContainer = document.getElementById('scrollContainer');
 
-        let isAutoScrollOn = true;
-        let autoScrollInterval = null;
-        let pauseTimeout = null;
-        let isPaused = false;
-        let isResetting = false;
-        let lastScrollTop = 0;
+        // let isAutoScrollOn = true;
+        // let autoScrollInterval = null;
+        // let pauseTimeout = null;
+        // let isPaused = false;
+        // let isResetting = false;
+        // let lastScrollTop = 0;
 
-        // Function to start auto-scroll
-        function startAutoScroll() {
-            if (autoScrollInterval) {
-                clearInterval(autoScrollInterval);
-            }
+        // // Function to start auto-scroll
+        // function startAutoScroll() {
+        //     if (autoScrollInterval) {
+        //         clearInterval(autoScrollInterval);
+        //     }
 
-            autoScrollInterval = setInterval(() => {
-                if (!isAutoScrollOn || isPaused || isResetting) return;
+        //     autoScrollInterval = setInterval(() => {
+        //         if (!isAutoScrollOn || isPaused || isResetting) return;
 
-                const maxScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+        //         const maxScroll = scrollContainer.scrollHeight - scrollContainer.clientHeight;
 
-                // Scroll down smoothly
-                scrollContainer.scrollTop += 1.5; // Adjust speed here
+        //         // Scroll down smoothly
+        //         scrollContainer.scrollTop += 1.5; // Adjust speed here
 
-                // When reached bottom, reset to top and continue
-                if (scrollContainer.scrollTop >= maxScroll - 2) {
-                    isResetting = true;
+        //         // When reached bottom, reset to top and continue
+        //         if (scrollContainer.scrollTop >= maxScroll - 2) {
+        //             isResetting = true;
 
-                    // Stop the interval temporarily
-                    clearInterval(autoScrollInterval);
+        //             // Stop the interval temporarily
+        //             clearInterval(autoScrollInterval);
 
-                    // Wait a moment at the bottom
-                    setTimeout(() => {
-                        // Jump to top instantly
-                        scrollContainer.scrollTo({
-                            top: 0,
-                            behavior: 'auto' // Instant jump
-                        });
+        //             // Wait a moment at the bottom
+        //             setTimeout(() => {
+        //                 // Jump to top instantly
+        //                 scrollContainer.scrollTo({
+        //                     top: 0,
+        //                     behavior: 'auto' // Instant jump
+        //                 });
 
-                        // Wait a bit then restart scrolling
-                        setTimeout(() => {
-                            isResetting = false;
-                            if (isAutoScrollOn && !isPaused) {
-                                startAutoScroll(); // Restart the scrolling
-                            }
-                        }, 500); // Small delay before starting again
-                    }, 1000); // Pause at bottom for 1 second
-                }
-            }, 30); // Smooth interval
-        }
+        //                 // Wait a bit then restart scrolling
+        //                 setTimeout(() => {
+        //                     isResetting = false;
+        //                     if (isAutoScrollOn && !isPaused) {
+        //                         startAutoScroll(); // Restart the scrolling
+        //                     }
+        //                 }, 500); // Small delay before starting again
+        //             }, 1000); // Pause at bottom for 1 second
+        //         }
+        //     }, 30); // Smooth interval
+        // }
 
-        // Function to stop auto-scroll
-        function stopAutoScroll() {
-            if (autoScrollInterval) {
-                clearInterval(autoScrollInterval);
-                autoScrollInterval = null;
-            }
-            isResetting = false;
-        }
+        // // Function to stop auto-scroll
+        // function stopAutoScroll() {
+        //     if (autoScrollInterval) {
+        //         clearInterval(autoScrollInterval);
+        //         autoScrollInterval = null;
+        //     }
+        //     isResetting = false;
+        // }
 
-        // Function to pause auto-scroll temporarily
-        function pauseAutoScroll() {
-            if (!isAutoScrollOn || isResetting) return;
+        // // Function to pause auto-scroll temporarily
+        // function pauseAutoScroll() {
+        //     if (!isAutoScrollOn || isResetting) return;
 
-            isPaused = true;
+        //     isPaused = true;
 
-            // Clear any existing pause timeout
-            if (pauseTimeout) {
-                clearTimeout(pauseTimeout);
-            }
+        //     // Clear any existing pause timeout
+        //     if (pauseTimeout) {
+        //         clearTimeout(pauseTimeout);
+        //     }
 
-            // Resume after 5 seconds
-            pauseTimeout = setTimeout(() => {
-                isPaused = false;
-                if (isAutoScrollOn && !isResetting) {
-                    startAutoScroll();
-                }
-            }, 5000);
-        }
+        //     // Resume after 5 seconds
+        //     pauseTimeout = setTimeout(() => {
+        //         isPaused = false;
+        //         if (isAutoScrollOn && !isResetting) {
+        //             startAutoScroll();
+        //         }
+        //     }, 5000);
+        // }
 
-        // Detect user scroll interaction
-        let scrollTimeout;
-        scrollContainer.addEventListener('scroll', () => {
-            if (!isAutoScrollOn || isResetting) return;
+        // // Detect user scroll interaction
+        // let scrollTimeout;
+        // scrollContainer.addEventListener('scroll', () => {
+        //     if (!isAutoScrollOn || isResetting) return;
 
-            // Clear existing timeout
-            clearTimeout(scrollTimeout);
+        //     // Clear existing timeout
+        //     clearTimeout(scrollTimeout);
 
-            // Check if user is scrolling (not auto-scroll)
-            const currentScrollTop = scrollContainer.scrollTop;
-            const scrollDiff = Math.abs(currentScrollTop - lastScrollTop);
+        //     // Check if user is scrolling (not auto-scroll)
+        //     const currentScrollTop = scrollContainer.scrollTop;
+        //     const scrollDiff = Math.abs(currentScrollTop - lastScrollTop);
 
-            // If scroll difference is larger than auto-scroll increment, it's user interaction
-            if (scrollDiff > 5 && !isPaused) {
-                stopAutoScroll();
-                pauseAutoScroll();
-            }
+        //     // If scroll difference is larger than auto-scroll increment, it's user interaction
+        //     if (scrollDiff > 5 && !isPaused) {
+        //         stopAutoScroll();
+        //         pauseAutoScroll();
+        //     }
 
-            lastScrollTop = currentScrollTop;
-        });
+        //     lastScrollTop = currentScrollTop;
+        // });
 
-        // Detect wheel scroll
-        scrollContainer.addEventListener('wheel', (e) => {
-            if (isAutoScrollOn && !isResetting) {
-                stopAutoScroll();
-                pauseAutoScroll();
-            }
-        }, { passive: true });
+        // // Detect wheel scroll
+        // scrollContainer.addEventListener('wheel', (e) => {
+        //     if (isAutoScrollOn && !isResetting) {
+        //         stopAutoScroll();
+        //         pauseAutoScroll();
+        //     }
+        // }, { passive: true });
 
-        // Detect touch scroll (mobile)
-        scrollContainer.addEventListener('touchstart', () => {
-            if (isAutoScrollOn && !isResetting) {
-                stopAutoScroll();
-                pauseAutoScroll();
-            }
-        }, { passive: true });
+        // // Detect touch scroll (mobile)
+        // scrollContainer.addEventListener('touchstart', () => {
+        //     if (isAutoScrollOn && !isResetting) {
+        //         stopAutoScroll();
+        //         pauseAutoScroll();
+        //     }
+        // }, { passive: true });
 
-        // Detect mouse drag
-        scrollContainer.addEventListener('mousedown', () => {
-            if (isAutoScrollOn && !isResetting) {
-                stopAutoScroll();
-                pauseAutoScroll();
-            }
-        });
+        // // Detect mouse drag
+        // scrollContainer.addEventListener('mousedown', () => {
+        //     if (isAutoScrollOn && !isResetting) {
+        //         stopAutoScroll();
+        //         pauseAutoScroll();
+        //     }
+        // });
 
-        // ✅ FIXED: Toggle function that works for both button and circle
-        function toggleAutoScroll(e) {
-            if (e) {
-                e.stopPropagation();
-                e.preventDefault();
-                e.stopImmediatePropagation();
-            }
+        // // ✅ FIXED: Toggle function that works for both button and circle
+        // function toggleAutoScroll(e) {
+        //     if (e) {
+        //         e.stopPropagation();
+        //         e.preventDefault();
+        //         e.stopImmediatePropagation();
+        //     }
 
-            isAutoScrollOn = !isAutoScrollOn;
+        //     isAutoScrollOn = !isAutoScrollOn;
 
-            if (isAutoScrollOn) {
-                // Turn ON
-                autoScrollBtn.classList.remove('bg-gray-300');
-                autoScrollBtn.classList.add('bg-[#416C32]');
-                toggleCircle.classList.add('translate-x-4');
-                toggleCircle.classList.remove('translate-x-0');
-                isPaused = false;
-                isResetting = false;
-                startAutoScroll();
-            } else {
-                // Turn OFF
-                autoScrollBtn.classList.remove('bg-[#416C32]');
-                autoScrollBtn.classList.add('bg-gray-300');
-                toggleCircle.classList.remove('translate-x-4');
-                toggleCircle.classList.add('translate-x-0');
-                stopAutoScroll();
-                isPaused = false;
-                if (pauseTimeout) {
-                    clearTimeout(pauseTimeout);
-                }
-            }
-        }
+        //     if (isAutoScrollOn) {
+        //         // Turn ON
+        //         autoScrollBtn.classList.remove('bg-gray-300');
+        //         autoScrollBtn.classList.add('bg-[#416C32]');
+        //         toggleCircle.classList.add('translate-x-4');
+        //         toggleCircle.classList.remove('translate-x-0');
+        //         isPaused = false;
+        //         isResetting = false;
+        //         startAutoScroll();
+        //     } else {
+        //         // Turn OFF
+        //         autoScrollBtn.classList.remove('bg-[#416C32]');
+        //         autoScrollBtn.classList.add('bg-gray-300');
+        //         toggleCircle.classList.remove('translate-x-4');
+        //         toggleCircle.classList.add('translate-x-0');
+        //         stopAutoScroll();
+        //         isPaused = false;
+        //         if (pauseTimeout) {
+        //             clearTimeout(pauseTimeout);
+        //         }
+        //     }
+        // }
 
-        // Add click handler to both button and circle
-        autoScrollBtn.addEventListener('click', toggleAutoScroll);
-        toggleCircle.addEventListener('click', toggleAutoScroll);
+        // // Add click handler to both button and circle
+        // autoScrollBtn.addEventListener('click', toggleAutoScroll);
+        // toggleCircle.addEventListener('click', toggleAutoScroll);
 
-        // Touch events for mobile
-        autoScrollBtn.addEventListener('touchstart', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            e.stopImmediatePropagation();
-        }, { passive: false });
+        // // Touch events for mobile
+        // autoScrollBtn.addEventListener('touchstart', (e) => {
+        //     e.stopPropagation();
+        //     e.preventDefault();
+        //     e.stopImmediatePropagation();
+        // }, { passive: false });
 
-        autoScrollBtn.addEventListener('touchend', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            toggleAutoScroll(e);
-        }, { passive: false });
+        // autoScrollBtn.addEventListener('touchend', (e) => {
+        //     e.stopPropagation();
+        //     e.preventDefault();
+        //     e.stopImmediatePropagation();
+        //     toggleAutoScroll(e);
+        // }, { passive: false });
 
-        toggleCircle.addEventListener('touchstart', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            e.stopImmediatePropagation();
-        }, { passive: false });
+        // toggleCircle.addEventListener('touchstart', (e) => {
+        //     e.stopPropagation();
+        //     e.preventDefault();
+        //     e.stopImmediatePropagation();
+        // }, { passive: false });
 
-        toggleCircle.addEventListener('touchend', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            e.stopImmediatePropagation();
-            toggleAutoScroll(e);
-        }, { passive: false });
+        // toggleCircle.addEventListener('touchend', (e) => {
+        //     e.stopPropagation();
+        //     e.preventDefault();
+        //     e.stopImmediatePropagation();
+        //     toggleAutoScroll(e);
+        // }, { passive: false });
 
 
 
-        // ✅ NEW: Also handle touch events separately
-        autoScrollBtn.addEventListener('touchstart', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            e.stopImmediatePropagation();
-        }, { passive: false });
+        // // ✅ NEW: Also handle touch events separately
+        // autoScrollBtn.addEventListener('touchstart', (e) => {
+        //     e.stopPropagation();
+        //     e.preventDefault();
+        //     e.stopImmediatePropagation();
+        // }, { passive: false });
 
-        autoScrollBtn.addEventListener('touchend', (e) => {
-            e.stopPropagation();
-            e.preventDefault();
-            e.stopImmediatePropagation();
+        // autoScrollBtn.addEventListener('touchend', (e) => {
+        //     e.stopPropagation();
+        //     e.preventDefault();
+        //     e.stopImmediatePropagation();
 
-            // Trigger click logic
-            autoScrollBtn.click();
-        }, { passive: false });
-        // Start auto-scroll by default
-        startAutoScroll();
+        //     // Trigger click logic
+        //     autoScrollBtn.click();
+        // }, { passive: false });
+        // // Start auto-scroll by default
+        // startAutoScroll();
 
 
 
@@ -4855,7 +4979,9 @@
             if (page === 1) {
                 animatePage1();
             }
-
+            if (page === 3) {
+                TableOfContentAnimation();
+            }
             if (page === 5) {
                 RoundBucketAnimation();
             }
