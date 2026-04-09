@@ -7177,7 +7177,7 @@ body{
   
 
   
-  .lightbox-target img {
+  /* .lightbox-target img {
     margin: auto;
     position: absolute;
     top: 0;
@@ -7191,7 +7191,7 @@ body{
     -o-transition: 0.5s ease-in-out;
     transition: 0.5s ease-in-out;
     overflow: hidden;
-  }
+  } */
   .lightbox-target video {
     margin: auto;
     position: absolute;
@@ -7281,11 +7281,11 @@ body{
     overflow: hidden;
   }
   
-  .lightbox-target:target img {
+  /* .lightbox-target:target img {
     max-height: 100%;
     max-width: 100%;
     overflow: hidden;
-  }
+  } */
   
 .lightbox-target:target model-viewer {
     max-height: 100%;

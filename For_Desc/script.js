@@ -544,8 +544,8 @@ const pages = [
     { page: 4, title: "Chapter 2", keywords: [ "4","5", "round containers", "round bucket"] },
     { page: 6, title: "Chapter 3", keywords: [ "6","7", "sweet box", "tamper Evident"] },
     { page: 8, title: "Introduction", keywords: [ "8","9", "IML Biriyani Rectangle" , ""] },
-    { page: 10, title: "Chapter 1", keywords: [ "10","11", "Square bucket", "Ice cream Oval"] },
-    { page: 12, title: "Chapter 2", keywords: [ "12","13", "Ice cream round", "beverage cup"] },
+    { page: 10, title: "Chapter 1", keywords: [ "10","11", "Square bucket", "beverage cup"] },
+    { page: 12, title: "Chapter 2", keywords: [ "12","13", "Ice cream round", "Ice cream Oval"] },
     { page: 14, title: "Chapter 2", keywords: [ "conclusion", "end", "14", "contact us"] },
   
 ];
