@@ -379,6 +379,40 @@
         });
 
         window.onload = load_home;
+
+
+
+
+
+
+        document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || 
+        e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        e.preventDefault();
+    }
+
+    if (e.target.matches('input, textarea')) return;
+
+    const objectEl = document.querySelector('#content object');
+    if (!objectEl) return;
+
+    switch(e.key) {
+        case 'ArrowRight':
+        case 'ArrowDown':
+            objectEl.contentWindow.postMessage({ action: 'flipNext' }, '*');
+            break;
+        case 'ArrowLeft':
+        case 'ArrowUp':
+            objectEl.contentWindow.postMessage({ action: 'flipPrev' }, '*');
+            break;
+        case 'Home':
+            objectEl.contentWindow.postMessage({ action: 'flipFirst' }, '*');
+            break;
+        case 'End':
+            objectEl.contentWindow.postMessage({ action: 'flipLast' }, '*');
+            break;
+    }
+});
     </script>
 </body>
 </html>

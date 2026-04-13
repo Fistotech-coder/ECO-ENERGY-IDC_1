@@ -5118,6 +5118,26 @@ function TableOfContentAnimation() {
             setTimeout(() => loadSVGs(), 100); // Small delay for DOM to settle
         });
 
+
+
+
+        window.addEventListener('message', function(event) {
+    switch(event.data.action) {
+        case 'flipNext':
+            $('#flipbook').turn('next');
+            break;
+        case 'flipPrev':
+            $('#flipbook').turn('previous');
+            break;
+        case 'flipFirst':
+            $('#flipbook').turn('page', 1);
+            break;
+        case 'flipLast':
+            const total = $('#flipbook').turn('pages');
+            $('#flipbook').turn('page', total);
+            break;
+    }
+});
     </script>
 
     <style>
