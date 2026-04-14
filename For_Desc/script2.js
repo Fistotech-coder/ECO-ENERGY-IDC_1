@@ -390,7 +390,7 @@ const iceCreamRoundProducts = [
     backgroundImg:          "../global assets/Images/Ice-cream-round/100ml/background-img.webp",
     textImg:                "../global assets/Images/Ice-cream-round/100ml/iml-ice-cream-round.svg",
     currentContainerImg:    "../global assets/Images/Ice-cream-round/100ml/100ml-container.webp",
-    previousContainerImg:   "../global assets/Images/Ice-cream-round/125ml/125ml-container.webp",
+    previousContainerImg:   "../global assets/Images/Ice-cream-round/125ml-false-bottom/125ml-false-bottom-container.webp",
     nextContainerImg:       "../global assets/Images/Ice-cream-round/100ml-false-bottom/100ml-false-bottom-container.webp",
     containerNameImg:       "../global assets/Images/Ice-cream-round/100ml/100ml.svg",
     imlMoqImg:              "../global assets/Images/Ice-cream-round/100ml/iml-moq.svg",
@@ -440,7 +440,7 @@ const iceCreamRoundProducts = [
     textImg:              "../global assets/Images/Ice-cream-round/125ml/iml-ice-cream-round.svg",
     currentContainerImg:  "../global assets/Images/Ice-cream-round/125ml/125ml-container.webp",
     previousContainerImg: "../global assets/Images/Ice-cream-round/115ml/115ml-container.webp",
-    nextContainerImg:     "../global assets/Images/Ice-cream-round/100ml/100ml-container.webp",
+    nextContainerImg:     "../global assets/Images/Ice-cream-round/125ml-false-bottom/125ml-false-bottom-container.webp",
     containerNameImg:     "../global assets/Images/Ice-cream-round/125ml/125ml.svg",
     imlMoqImg:            "../global assets/Images/Ice-cream-round/125ml/iml-moq.svg",
     productCodeImg:       "../global assets/Images/Ice-cream-round/125ml/product-code.svg",
@@ -450,6 +450,24 @@ const iceCreamRoundProducts = [
     iceCreamRoundHeightImg: "../global assets/Images/Ice-cream-round/125ml/height-icon.svg",
     lightboxUrl:          "../lightBox/index.html#125-ml-ice-cream-round-container"
   },
+  {
+    index: 4,
+    backgroundImg:          "../global assets/Images/Ice-cream-round/125ml-false-bottom/background-img.webp",
+    textImg:                "../global assets/Images/Ice-cream-round/125ml-false-bottom/iml-ice-cream-round.svg",
+    currentContainerImg:    "../global assets/Images/Ice-cream-round/125ml-false-bottom/125ml-false-bottom-container.webp",
+    previousContainerImg:   "../global assets/Images/Ice-cream-round/125ml/125ml-container.webp",
+    nextContainerImg:       "../global assets/Images/Ice-cream-round/100ml/100ml-container.webp",
+    containerNameImg:       "../global assets/Images/Ice-cream-round/125ml-false-bottom/125ml-false-bottom.svg",
+    imlMoqImg:              "../global assets/Images/Ice-cream-round/125ml-false-bottom/iml-moq.svg",
+    productCodeImg:         "../global assets/Images/Ice-cream-round/125ml-false-bottom/product-code.svg",
+    contentImg:             "../global assets/Images/Ice-cream-round/125ml-false-bottom/content.svg",
+    iceCreamRoundTopImg:    "../global assets/Images/Ice-cream-round/125ml-false-bottom/top-icon.svg",
+    iceCreamRoundBottomImg: "../global assets/Images/Ice-cream-round/125ml-false-bottom/bottom-icon.svg",
+    iceCreamRoundHeightImg: "../global assets/Images/Ice-cream-round/125ml-false-bottom/height-icon.svg",
+    lightboxUrl:            "../lightBox/index.html#125-ml-false-bottom-ice-cream-round-container"
+  },
+
+  
 ];
 
 let iceCreamRoundCurrentIndex  = 0;

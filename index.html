@@ -48,7 +48,6 @@
             transition: opacity 0.8s ease-out;
         }
 
-        /* DNA Helix */
         .dna-container {
             position: relative;
             width: 120px;
@@ -110,15 +109,12 @@
             opacity: 0.5;
         }
 
-        /* Center Logo */
         .center-logo {
             margin-top: 30px;
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            /* background: linear-gradient(135deg, rgba(34, 197, 94, 0.2), rgba(20, 184, 166, 0.2));
-             */
-             background-color: #e6e6e6;
+            background-color: #e6e6e6;
             border: 2px solid rgba(34, 197, 94, 0.5);
             display: flex;
             align-items: center;
@@ -131,15 +127,10 @@
         }
 
         @keyframes logoGlow {
-            0%, 100% {
-                box-shadow: 0 0 10px rgba(34, 197, 94, 0.3);
-            }
-            50% {
-                box-shadow: 0 0 10px rgba(34, 197, 94, 0.6), 0 0 20px rgba(20, 184, 166, 0.4);
-            }
+            0%, 100% { box-shadow: 0 0 10px rgba(34, 197, 94, 0.3); }
+            50%       { box-shadow: 0 0 10px rgba(34, 197, 94, 0.6), 0 0 20px rgba(20, 184, 166, 0.4); }
         }
 
-        /* Text */
         .loader-text {
             margin-top: 30px;
             text-align: center;
@@ -158,7 +149,7 @@
 
         @keyframes textShine {
             from { background-position: 0% center; }
-            to { background-position: 200% center; }
+            to   { background-position: 200% center; }
         }
 
         .loader-text p {
@@ -168,10 +159,8 @@
             margin-top: 20px;
             font-weight: 600;
             letter-spacing: 1.5px;
-            /* text-transform: uppercase; */
         }
 
-        /* Progress Line */
         .progress-line {
             margin-top: 30px;
             width: 200px;
@@ -191,11 +180,10 @@
         }
 
         @keyframes progressSlide {
-            0% { transform: translateX(-100%); }
+            0%   { transform: translateX(-100%); }
             100% { transform: translateX(300%); }
         }
 
-        /* Background Particles */
         .bg-particles {
             position: absolute;
             width: 100%;
@@ -226,10 +214,10 @@
         .bg-particle:nth-child(8) { left: 90%; top: 50%; animation-delay: 7s; }
 
         @keyframes floatParticle {
-            0%, 100% { transform: translate(0, 0); opacity: 0.3; }
-            25% { transform: translate(10px, -20px); opacity: 0.6; }
-            50% { transform: translate(-10px, -10px); opacity: 0.3; }
-            75% { transform: translate(5px, 10px); opacity: 0.6; }
+            0%, 100% { transform: translate(0, 0);      opacity: 0.3; }
+            25%       { transform: translate(10px, -20px); opacity: 0.6; }
+            50%       { transform: translate(-10px, -10px); opacity: 0.3; }
+            75%       { transform: translate(5px, 10px);  opacity: 0.6; }
         }
 
         .fade-out {
@@ -240,6 +228,8 @@
 </head>
 
 <body>
+
+    <!-- ✅ STEP 1: Preloader is now uncommented and always visible on load -->
     <div id="preloader">
         <div class="bg-particles">
             <div class="bg-particle"></div>
@@ -269,58 +259,48 @@
         const preloader  = document.getElementById("preloader");
         const contentDiv = document.getElementById("content");
 
-        let isContentLoaded = false;
-        let imagesLoaded    = false;
-        let minTimeElapsed  = false;
+        // ✅ STEP 2: Single flag — triggers after first image loads + 3s delay
+        let hideScheduled = false;
 
-        // Minimum display time (2 seconds)
-        setTimeout(() => {
-            minTimeElapsed = true;
-            checkIfReadyToShow();
-        }, 2000);
+        function scheduleHide() {
+            if (hideScheduled) return;   // run only once
+            hideScheduled = true;
 
-        // Check all images inside the iframe and wait for them to load
-        function checkImagesInIframe(objectEl) {
-            return new Promise((resolve) => {
-                try {
-                    const iframeDoc = objectEl.contentDocument || objectEl.contentWindow.document;
-
-                    if (!iframeDoc) { resolve(); return; }
-
-                    const images      = iframeDoc.getElementsByTagName('img');
-                    const totalImages = images.length;
-
-                    if (totalImages === 0) { resolve(); return; }
-
-                    let loadedCount = 0;
-
-                    function onImageDone() {
-                        loadedCount++;
-                        if (loadedCount === totalImages) {
-                            resolve();
-                        }
-                    }
-
-                    Array.from(images).forEach((img) => {
-                        if (img.complete && img.naturalHeight !== 0) {
-                            onImageDone();
-                        } else {
-                            img.addEventListener('load',  onImageDone);
-                            img.addEventListener('error', onImageDone);
-                        }
-                    });
-
-                    // Fallback: don't wait more than 15 seconds
-                    setTimeout(resolve, 15000);
-
-                } catch (err) {
-                    console.error('Image check error:', err);
-                    resolve();
-                }
-            });
+            // ✅ STEP 3: Wait 3 seconds after first image is detected, then hide
+            setTimeout(showContent, 3000);
         }
 
-        // Load the content page
+        // ✅ STEP 4: Watch the iframe for its first image to load
+        function waitForFirstImageInIframe(objectEl) {
+            try {
+                const iframeDoc = objectEl.contentDocument || objectEl.contentWindow?.document;
+                if (!iframeDoc) { scheduleHide(); return; }
+
+                const images = iframeDoc.getElementsByTagName('img');
+
+                if (images.length === 0) {
+                    // No images at all — just wait for iframe load then hide
+                    scheduleHide();
+                    return;
+                }
+
+                // Listen for the FIRST image to finish loading
+                Array.from(images).forEach((img) => {
+                    if (img.complete && img.naturalHeight !== 0) {
+                        scheduleHide();   // already loaded
+                    } else {
+                        img.addEventListener('load',  scheduleHide, { once: true });
+                        img.addEventListener('error', scheduleHide, { once: true });
+                    }
+                });
+
+            } catch (err) {
+                console.error('Iframe access error:', err);
+                scheduleHide();
+            }
+        }
+
+        // ✅ STEP 5: Load the content page
         function load_home() {
             var folderPath = 'For_Desc/index.html';
             contentDiv.innerHTML = '<object type="text/html" data="' + folderPath + '" style="width:100%; height:600px;"></object>';
@@ -329,36 +309,16 @@
 
             if (objectEl) {
                 objectEl.addEventListener('load', function () {
-                    isContentLoaded = true;
-
-                    // Wait a moment for iframe to fully render, then check images
-                    setTimeout(() => {
-                        checkImagesInIframe(objectEl).then(() => {
-                            imagesLoaded = true;
-                            checkIfReadyToShow();
-                        });
-                    }, 500);
+                    // Give browser a moment to parse iframe DOM before checking images
+                    setTimeout(() => waitForFirstImageInIframe(objectEl), 300);
                 });
 
-                // Fallback if load event never fires
-                setTimeout(() => {
-                    if (!isContentLoaded) {
-                        isContentLoaded = true;
-                        imagesLoaded    = true;
-                        checkIfReadyToShow();
-                    }
-                }, 10000);
+                // ✅ STEP 6: Hard fallback — never show preloader longer than 12 seconds
+                setTimeout(() => scheduleHide(), 12000);
             }
         }
 
-        // Only hide preloader when ALL three conditions are met
-        function checkIfReadyToShow() {
-            if (minTimeElapsed && isContentLoaded && imagesLoaded) {
-                showContent();
-            }
-        }
-
-        // Hide preloader
+        // ✅ STEP 7: Fade out and remove the preloader
         function showContent() {
             preloader.classList.add("fade-out");
             setTimeout(() => {
@@ -380,45 +340,37 @@
 
         window.onload = load_home;
 
-
-
-
-
-
         document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft' || 
-        e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-        e.preventDefault();
-    }
+            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft' ||
+                e.key === 'ArrowDown'  || e.key === 'ArrowUp') {
+                e.preventDefault();
+            }
 
-    if (e.target.matches('input, textarea')) return;
+            if (e.target.matches('input, textarea')) return;
 
-    const objectEl = document.querySelector('#content object');
-    if (!objectEl) return;
+            const objectEl = document.querySelector('#content object');
+            if (!objectEl) return;
 
-    switch(e.key) {
-        case 'ArrowRight':
-        case 'ArrowDown':
-            objectEl.contentWindow.postMessage({ action: 'flipNext' }, '*');
-            break;
-        case 'ArrowLeft':
-        case 'ArrowUp':
-            objectEl.contentWindow.postMessage({ action: 'flipPrev' }, '*');
-            break;
-        case 'Home':
-            objectEl.contentWindow.postMessage({ action: 'flipFirst' }, '*');
-            break;
-        case 'End':
-            objectEl.contentWindow.postMessage({ action: 'flipLast' }, '*');
-            break;
-    }
-});
+            switch(e.key) {
+                case 'ArrowRight':
+                case 'ArrowDown':
+                    objectEl.contentWindow.postMessage({ action: 'flipNext' }, '*');
+                    break;
+                case 'ArrowLeft':
+                case 'ArrowUp':
+                    objectEl.contentWindow.postMessage({ action: 'flipPrev' }, '*');
+                    break;
+                case 'Home':
+                    objectEl.contentWindow.postMessage({ action: 'flipFirst' }, '*');
+                    break;
+                case 'End':
+                    objectEl.contentWindow.postMessage({ action: 'flipLast' }, '*');
+                    break;
+            }
+        });
     </script>
 </body>
 </html>
-
-
-
 
 
 
